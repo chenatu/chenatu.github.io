@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="RtplVEaFsiFuMI40JSZnt-DhN77grlWJfIdnUzmPtu4" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>angularjs利用ui-route异步加载组件 | 每天进步一点点</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ui-route相比于angularjs的原生视图路由更好地支持了路由嵌套，状态转移等等。随着视图不断增加，打包的js体积也会越来越大，比如我在应用里面用到了wangeditor里面单独依赖的jquery就300多k。异步加载各个组件就很有必要。在这里我就以ui-route为框架来进行异步加载说明。
+首先看一下路由加载文件
+1234567891011121314151617181920212223">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angularjs利用ui-route异步加载组件">
+<meta property="og:url" content="http://mrchenatu.com/2016/11/06/angularjs-async/index.html">
+<meta property="og:site_name" content="每天进步一点点">
+<meta property="og:description" content="ui-route相比于angularjs的原生视图路由更好地支持了路由嵌套，状态转移等等。随着视图不断增加，打包的js体积也会越来越大，比如我在应用里面用到了wangeditor里面单独依赖的jquery就300多k。异步加载各个组件就很有必要。在这里我就以ui-route为框架来进行异步加载说明。
+首先看一下路由加载文件
+1234567891011121314151617181920212223">
+<meta property="og:updated_time" content="2017-03-23T16:24:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angularjs利用ui-route异步加载组件">
+<meta name="twitter:description" content="ui-route相比于angularjs的原生视图路由更好地支持了路由嵌套，状态转移等等。随着视图不断增加，打包的js体积也会越来越大，比如我在应用里面用到了wangeditor里面单独依赖的jquery就300多k。异步加载各个组件就很有必要。在这里我就以ui-route为框架来进行异步加载说明。
+首先看一下路由加载文件
+1234567891011121314151617181920212223">
+  
+    <link rel="alternative" href="/atom.xml" title="每天进步一点点" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d5516c4f9e5c86bdd58e7c4858fd977f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/asset/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">chenatu</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/coding/">coding</a></li>
+	        
+				<li><a href="/categories/life/">life</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">chenatu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/asset/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">chenatu</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/coding/">coding</a></li>
+		        
+					<li><a href="/categories/life/">life</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-angularjs-async" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      angularjs利用ui-route异步加载组件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ui-route相比于angularjs的原生视图路由更好地支持了路由嵌套，状态转移等等。随着视图不断增加，打包的js体积也会越来越大，比如我在应用里面用到了<a href="https://github.com/wangfupeng1988/wangEditor" target="_blank" rel="external">wangeditor</a>里面单独依赖的jquery就300多k。异步加载各个组件就很有必要。在这里我就以ui-route为框架来进行异步加载说明。</p>
+<p>首先看一下路由加载文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;webtrn-sns&apos;).config([&apos;$stateProvider&apos;, function ($stateProvider) &#123;</div><div class="line">    $stateProvider.state(&#123;</div><div class="line">            name: &apos;home.message&apos;,</div><div class="line">            url: &apos;/message&apos;,</div><div class="line">            abstract: true,</div><div class="line">            templateProvider: [&apos;resources&apos;, function (resources) &#123;</div><div class="line">                return resources.template</div><div class="line">            &#125;],</div><div class="line">            controllerProvider: [&apos;resources&apos;, (resources)=&gt; &#123;</div><div class="line">                return resources.controller</div><div class="line">            &#125;],</div><div class="line">            onEnter: [&apos;resources&apos;, (resources)=&gt;resources.css.use()],</div><div class="line">            onExit: [&apos;resources&apos;, (resources)=&gt;resources.css.unuse()],</div><div class="line">            resolve: &#123;</div><div class="line">                resources: ()=&gt; &#123;</div><div class="line">                    return new Promise(</div><div class="line">                        resolve =&gt; &#123;</div><div class="line">                            require([], () =&gt; &#123;</div><div class="line">                                resolve(&#123;</div><div class="line">                                    css: require(&apos;./css/message_box.css&apos;),</div><div class="line">                                    template: require(&apos;./html/message_box.html&apos;),</div><div class="line">                                    controller: require(&apos;./js/message_box.js&apos;)</div><div class="line">                                &#125;)</div><div class="line">                            &#125;)</div><div class="line">                        &#125;</div><div class="line">                    );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ).state(&#123;</div><div class="line">            name: &apos;home.message.add_message&apos;,</div><div class="line">            url: &apos;/add_message?isReply&amp;toUid&amp;title&apos;,</div><div class="line">            params: &#123;isReply: null, toUid: null, title: null&#125;,</div><div class="line">            templateProvider: [&apos;resources&apos;, function (resources) &#123;</div><div class="line">                return resources.template</div><div class="line">            &#125;],</div><div class="line">            controllerProvider: [&apos;resources&apos;, (resources)=&gt; &#123;</div><div class="line">                return resources.controller</div><div class="line">            &#125;],</div><div class="line">            onEnter: [&apos;resources&apos;, (resources)=&gt;resources.css.use()],</div><div class="line">            onExit: [&apos;resources&apos;, (resources)=&gt;resources.css.unuse()],</div><div class="line">            resolve: &#123;</div><div class="line">                resources: ()=&gt; &#123;</div><div class="line">                    return new Promise(</div><div class="line">                        resolve =&gt; &#123;</div><div class="line">                            require([&apos;./js/message.js&apos;], () =&gt; &#123;</div><div class="line">                                resolve(&#123;</div><div class="line">                                    css: require(&apos;./css/add_message.css&apos;),</div><div class="line">                                    template: require(&apos;./html/add_message.html&apos;),</div><div class="line">                                    controller: require(&apos;./js/add_message.js&apos;)</div><div class="line">                                &#125;)</div><div class="line">                            &#125;)</div><div class="line">                        &#125;</div><div class="line">                    );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    )</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+<p>这个是路由状态的一个声明文件，<code>name</code>,<code>url</code>,<code>param字段的</code>方式不变，关键是看resolve这个部分。根据ui-route的<a href="https://github.com/angular-ui/ui-router/wiki#resolve" target="_blank" rel="external">resolve</a>文档,resolve是为了给state或者controller进行自定义注入对象的。</p>
+<p>下面是举出文档中关于resolve的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">$stateProvider.state(&apos;myState&apos;, &#123;</div><div class="line">      resolve:&#123;</div><div class="line"></div><div class="line">         // Example using function with simple return value.</div><div class="line">         // Since it&apos;s not a promise, it resolves immediately.</div><div class="line">         simpleObj:  function()&#123;</div><div class="line">            return &#123;value: &apos;simple!&apos;&#125;;</div><div class="line">         &#125;,</div><div class="line"></div><div class="line">         // Example using function with returned promise.</div><div class="line">         // This is the typical use case of resolve.</div><div class="line">         // You need to inject any services that you are</div><div class="line">         // using, e.g. $http in this example</div><div class="line">         promiseObj:  function($http)&#123;</div><div class="line">            // $http returns a promise for the url data</div><div class="line">            return $http(&#123;method: &apos;GET&apos;, url: &apos;/someUrl&apos;&#125;);</div><div class="line">         &#125;,</div><div class="line"></div><div class="line">         // Another promise example. If you need to do some </div><div class="line">         // processing of the result, use .then, and your </div><div class="line">         // promise is chained in for free. This is another</div><div class="line">         // typical use case of resolve.</div><div class="line">         promiseObj2:  function($http)&#123;</div><div class="line">            return $http(&#123;method: &apos;GET&apos;, url: &apos;/someUrl&apos;&#125;)</div><div class="line">               .then (function (data) &#123;</div><div class="line">                   return doSomeStuffFirst(data);</div><div class="line">               &#125;);</div><div class="line">         &#125;,        </div><div class="line"></div><div class="line">         // Example using a service by name as string.</div><div class="line">         // This would look for a &apos;translations&apos; service</div><div class="line">         // within the module and return it.</div><div class="line">         // Note: The service could return a promise and</div><div class="line">         // it would work just like the example above</div><div class="line">         translations: &quot;translations&quot;,</div><div class="line"></div><div class="line">         // Example showing injection of service into</div><div class="line">         // resolve function. Service then returns a</div><div class="line">         // promise. Tip: Inject $stateParams to get</div><div class="line">         // access to url parameters.</div><div class="line">         translations2: function(translations, $stateParams)&#123;</div><div class="line">             // Assume that getLang is a service method</div><div class="line">             // that uses $http to fetch some translations.</div><div class="line">             // Also assume our url was &quot;/:lang/home&quot;.</div><div class="line">             return translations.getLang($stateParams.lang);</div><div class="line">         &#125;,</div><div class="line"></div><div class="line">         // Example showing returning of custom made promise</div><div class="line">         greeting: function($q, $timeout)&#123;</div><div class="line">             var deferred = $q.defer();</div><div class="line">             $timeout(function() &#123;</div><div class="line">                 deferred.resolve(&apos;Hello!&apos;);</div><div class="line">             &#125;, 1000);</div><div class="line">             return deferred.promise;</div><div class="line">         &#125;</div><div class="line">      &#125;,</div><div class="line"></div><div class="line">      // The controller waits for every one of the above items to be</div><div class="line">      // completely resolved before instantiation. For example, the</div><div class="line">      // controller will not instantiate until promiseObj&apos;s promise has </div><div class="line">      // been resolved. Then those objects are injected into the controller</div><div class="line">      // and available for use.  </div><div class="line">      controller: function($scope, simpleObj, promiseObj, promiseObj2, translations, translations2, greeting)&#123;</div><div class="line">          $scope.simple = simpleObj.value;</div><div class="line"></div><div class="line">          // You can be sure that promiseObj is ready to use!</div><div class="line">          $scope.items = promiseObj.data.items;</div><div class="line">          $scope.items = promiseObj2.items;</div><div class="line"></div><div class="line">          $scope.title = translations.getLang(&quot;english&quot;).title;</div><div class="line">          $scope.title = translations2.title;</div><div class="line"></div><div class="line">          $scope.greeting = greeting;</div><div class="line">      &#125;</div><div class="line">   &#125;)</div></pre></td></tr></table></figure></p>
+<p>我们可以看到resolve的对象是支持Promise的。</p>
+<p>再回到我们之前的代码<code>templateProvider</code>和<code>controllerProvider</code>我们注入了resources的模板对象和controller对象，<code>onEnter</code>和<code>onExit</code>注入了css模块。</p>
+<p>如果controller中依赖了服务怎么办的？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">    resources: ()=&gt; &#123;</div><div class="line">        return new Promise(</div><div class="line">            resolve =&gt; &#123;</div><div class="line">                require([&apos;./js/message.js&apos;], () =&gt; &#123;</div><div class="line">                    resolve(&#123;</div><div class="line">                        css: require(&apos;./css/add_message.css&apos;),</div><div class="line">                        template: require(&apos;./html/add_message.html&apos;),</div><div class="line">                        controller: require(&apos;./js/add_message.js&apos;)</div><div class="line">                    &#125;)</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以在require里面将服务注入，如代码中的<code>message.js</code>。而为了将服务进行异步加载我们不能用普通的<code>.factory</code>或者<code>.service</code>。而需要调用<code>$provide.factory</code>或者<code>$provide.service</code></p>
+<p>如果采用webpack进行编译打包的话就需要<code>webpack.optimize.CommonsChunkPlugin</code>的支持，这样可以对js进行拆分打包，达到异步加载js的目的。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/06/angularjs-async/" class="archive-article-date">
+  	<time datetime="2016-11-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularjs/">angularjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/14/grafana-plugin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          安利一个运维监控平台grafana的插件grafana-influx-dashboard
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/28/spring-boot-test/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring-boot单元测试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="angularjs-async" data-title="angularjs利用ui-route异步加载组件" data-url="http://mrchenatu.com/2016/11/06/angularjs-async/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"chenatu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 chenatu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/cassandra/" style="font-size: 13.33px;">cassandra</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/方法论/" style="font-size: 10px;">方法论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/美团/" style="font-size: 10px;">美团</a> <a href="/tags/运维/" style="font-size: 13.33px;">运维</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个java web程序员，希望自己两年之内能成为data scientist，正在找工作</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

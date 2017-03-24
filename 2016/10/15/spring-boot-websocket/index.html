@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="RtplVEaFsiFuMI40JSZnt-DhN77grlWJfIdnUzmPtu4" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>spring-boot支持websocket | 每天进步一点点</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="spring-boot本身对websocket提供了很好的支持，可以直接原生支持sockjs和stomp协议。百度搜了一些中文文档，虽然也能实现websocket，但是并没有直接使用spring-boot直接支持的websocket的特性。
+在实践中觉得stromp协议对于websocket开发的自由度影响比较大。这里给大家展示一种自由度比较大的方案。
+主要就是三个组件，config，interc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-boot支持websocket">
+<meta property="og:url" content="http://mrchenatu.com/2016/10/15/spring-boot-websocket/index.html">
+<meta property="og:site_name" content="每天进步一点点">
+<meta property="og:description" content="spring-boot本身对websocket提供了很好的支持，可以直接原生支持sockjs和stomp协议。百度搜了一些中文文档，虽然也能实现websocket，但是并没有直接使用spring-boot直接支持的websocket的特性。
+在实践中觉得stromp协议对于websocket开发的自由度影响比较大。这里给大家展示一种自由度比较大的方案。
+主要就是三个组件，config，interc">
+<meta property="og:updated_time" content="2017-03-23T16:24:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-boot支持websocket">
+<meta name="twitter:description" content="spring-boot本身对websocket提供了很好的支持，可以直接原生支持sockjs和stomp协议。百度搜了一些中文文档，虽然也能实现websocket，但是并没有直接使用spring-boot直接支持的websocket的特性。
+在实践中觉得stromp协议对于websocket开发的自由度影响比较大。这里给大家展示一种自由度比较大的方案。
+主要就是三个组件，config，interc">
+  
+    <link rel="alternative" href="/atom.xml" title="每天进步一点点" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d5516c4f9e5c86bdd58e7c4858fd977f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/asset/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">chenatu</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/coding/">coding</a></li>
+	        
+				<li><a href="/categories/life/">life</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">chenatu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/asset/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">chenatu</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/coding/">coding</a></li>
+		        
+					<li><a href="/categories/life/">life</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-spring-boot-websocket" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring-boot支持websocket
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>spring-boot本身对websocket提供了很好的支持，可以直接原生支持sockjs和stomp协议。百度搜了一些中文文档，虽然也能实现websocket，但是并没有直接使用spring-boot直接支持的websocket的特性。</p>
+<p>在实践中觉得stromp协议对于websocket开发的自由度影响比较大。这里给大家展示一种自由度比较大的方案。</p>
+<p>主要就是三个组件，config，interceptor和handler</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@Configuration</div><div class="line">@EnableWebSocket</div><div class="line">public class MessageWebSocketConfig implements WebSocketConfigurer &#123;</div><div class="line">    @Override</div><div class="line">    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) &#123;</div><div class="line">        registry.addHandler(messageWebSocketHandler(), &quot;/sockjs/message&quot;)</div><div class="line">                .addInterceptors(new MessageWebSocketInterceptor()).withSockJS();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public MessageWebSocketHandler messageWebSocketHandler() &#123;</div><div class="line">        return new MessageWebSocketHandler();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>config需要继承<code>WebSocketConfigurer</code>需要重写<code>registerWebSocketHandlers</code>方法，指明handler和interceptor。</p>
+<p>interceptor顾名思义为拦截器我们可以在websocket建立之间和之后做一些事情。重载<code>beforeHandshake</code>和<code>afterHandshake</code>就OK。我在<code>beforeHandshake</code>这里还操作了<code>attributes</code>。被修改的<code>attributes</code>会被带到后面websocket的session之中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class MessageWebSocketInterceptor implements HandshakeInterceptor &#123;</div><div class="line">    @Override</div><div class="line">    public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map&lt;String, Object&gt; attributes) throws Exception &#123;</div><div class="line">        if (request instanceof ServletServerHttpRequest) &#123;</div><div class="line">            ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) request;</div><div class="line">            String siteId = servletRequest.getServletRequest().getParameter(&quot;siteId&quot;);</div><div class="line">            String userId = servletRequest.getServletRequest().getParameter(&quot;userId&quot;);</div><div class="line">            if (siteId == null || userId == null) &#123;</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">            attributes.put(&quot;siteId&quot;, siteId);</div><div class="line">            attributes.put(&quot;userId&quot;, userId);</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Exception exception) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>handler里面就可以写websocket的逻辑啦<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">public class MessageWebSocketHandler implements WebSocketHandler &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void afterConnectionEstablished(WebSocketSession session) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void handleMessage(WebSocketSession session, WebSocketMessage&lt;?&gt; message) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void handleTransportError(WebSocketSession session, Throwable exception) &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean supportsPartialMessages() &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>spring-boot单元测试可以写websocket-client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">@RunWith(SpringRunner.class)</div><div class="line">@SpringBootTest(classes = &#123;Application.class&#125;, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</div><div class="line">public class WebsocketTest &#123;</div><div class="line">    private final Logger logger = LoggerFactory.getLogger(WebsocketTest.class);</div><div class="line">    private final WebSocketHttpHeaders headers = new WebSocketHttpHeaders();</div><div class="line">    final CountDownLatch latch = new CountDownLatch(1);</div><div class="line">    final AtomicReference&lt;Throwable&gt; failure = new AtomicReference&lt;&gt;();</div><div class="line">    @LocalServerPort</div><div class="line">    private int port;</div><div class="line">    private SockJsClient sockJsClient;</div><div class="line"></div><div class="line">    @Before</div><div class="line">    public void setup() &#123;</div><div class="line">        List&lt;Transport&gt; transports = new ArrayList&lt;&gt;();</div><div class="line">        transports.add(new WebSocketTransport(new StandardWebSocketClient()));</div><div class="line">        transports.add(new RestTemplateXhrTransport());</div><div class="line">        this.sockJsClient = new SockJsClient(transports);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Test</div><div class="line">    public void getGreeting() throws Exception &#123;</div><div class="line"></div><div class="line">        this.sockJsClient.doHandshake(new TestWebSocketHandler(failure),</div><div class="line">                &quot;ws://localhost:&quot;+String.valueOf(port)+&quot;/sockjs/message?siteId=webtrn&amp;userId=lucy&quot;);</div><div class="line">        if (latch.await(60, TimeUnit.SECONDS)) &#123;</div><div class="line">            if (failure.get() != null) &#123;</div><div class="line">                throw new AssertionError(&quot;&quot;, failure.get());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            fail(&quot;Greeting not received&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    private class TestWebSocketHandler implements WebSocketHandler &#123;</div><div class="line"></div><div class="line">        private final AtomicReference&lt;Throwable&gt; failure;</div><div class="line"></div><div class="line">        TestWebSocketHandler() &#123;</div><div class="line">            this.failure = null;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ;</div><div class="line"></div><div class="line">        TestWebSocketHandler(AtomicReference&lt;Throwable&gt; failure) &#123;</div><div class="line">            this.failure = failure;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void afterConnectionEstablished(WebSocketSession session) throws Exception &#123;</div><div class="line">            logger.info(&quot;client connection established&quot;);</div><div class="line">            session.sendMessage(new TextMessage(&quot;hello websocket server!&quot;));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void handleMessage(WebSocketSession session, WebSocketMessage&lt;?&gt; message) throws Exception &#123;</div><div class="line">            String payload = (String) message.getPayload();</div><div class="line">            logger.info(&quot;client handle message: &quot; + payload);</div><div class="line">            if (payload.equals(&quot;hello websocket client! webtrn lucy&quot;)) &#123;</div><div class="line">                latch.countDown();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            if (payload.equals(&quot;web socket notify&quot;)) &#123;</div><div class="line">                latch.countDown();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception &#123;</div><div class="line">            logger.info(&quot;client transport error&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception &#123;</div><div class="line">            logger.info(&quot;client connection closed&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public boolean supportsPartialMessages() &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果采用stomp协议的话可以参考spring-boot的一个<a href="https://spring.io/guides/gs/messaging-stomp-websocket/" target="_blank" rel="external">ws-guide</a>。有问题还是直接看spring文档比较好。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/15/spring-boot-websocket/" class="archive-article-date">
+  	<time datetime="2016-10-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/websocket/">websocket</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/28/spring-boot-test/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          spring-boot单元测试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/28/spring-boot-webpack-dev-server/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring-boot 和 webpack-dev-server联合开发</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="spring-boot-websocket" data-title="spring-boot支持websocket" data-url="http://mrchenatu.com/2016/10/15/spring-boot-websocket/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"chenatu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 chenatu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/cassandra/" style="font-size: 13.33px;">cassandra</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/方法论/" style="font-size: 10px;">方法论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/美团/" style="font-size: 10px;">美团</a> <a href="/tags/运维/" style="font-size: 13.33px;">运维</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个java web程序员，希望自己两年之内能成为data scientist，正在找工作</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

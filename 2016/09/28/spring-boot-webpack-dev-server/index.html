@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="RtplVEaFsiFuMI40JSZnt-DhN77grlWJfIdnUzmPtu4" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>spring-boot 和 webpack-dev-server联合开发 | 每天进步一点点</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当前前后端架构分离的模式比较流行，前端用Nodejs或者ngnix等方式发布与渲染网页，后端程序只提供restful的数据接口。但对于一些小项目来说，并不想让前后端如此分离，还是希望用spring-boot的内置tomcat来serve static content。
+如果只是用前端工具的话，webpack是一个很好的打包方式，webpack-dev-server给我们提供了很好的在线调试与修改。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-boot 和 webpack-dev-server联合开发">
+<meta property="og:url" content="http://mrchenatu.com/2016/09/28/spring-boot-webpack-dev-server/index.html">
+<meta property="og:site_name" content="每天进步一点点">
+<meta property="og:description" content="当前前后端架构分离的模式比较流行，前端用Nodejs或者ngnix等方式发布与渲染网页，后端程序只提供restful的数据接口。但对于一些小项目来说，并不想让前后端如此分离，还是希望用spring-boot的内置tomcat来serve static content。
+如果只是用前端工具的话，webpack是一个很好的打包方式，webpack-dev-server给我们提供了很好的在线调试与修改。">
+<meta property="og:updated_time" content="2017-03-23T16:24:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-boot 和 webpack-dev-server联合开发">
+<meta name="twitter:description" content="当前前后端架构分离的模式比较流行，前端用Nodejs或者ngnix等方式发布与渲染网页，后端程序只提供restful的数据接口。但对于一些小项目来说，并不想让前后端如此分离，还是希望用spring-boot的内置tomcat来serve static content。
+如果只是用前端工具的话，webpack是一个很好的打包方式，webpack-dev-server给我们提供了很好的在线调试与修改。">
+  
+    <link rel="alternative" href="/atom.xml" title="每天进步一点点" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d5516c4f9e5c86bdd58e7c4858fd977f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/asset/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">chenatu</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/coding/">coding</a></li>
+	        
+				<li><a href="/categories/life/">life</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">chenatu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/asset/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">chenatu</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/coding/">coding</a></li>
+		        
+					<li><a href="/categories/life/">life</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-spring-boot-webpack-dev-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring-boot 和 webpack-dev-server联合开发
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当前前后端架构分离的模式比较流行，前端用Nodejs或者ngnix等方式发布与渲染网页，后端程序只提供restful的数据接口。但对于一些小项目来说，并不想让前后端如此分离，还是希望用spring-boot的内置tomcat来serve static content。</p>
+<p>如果只是用前端工具的话，webpack是一个很好的打包方式，webpack-dev-server给我们提供了很好的在线调试与修改。但是与spring-boot结合起来就不太协调。这时候就可以用到webpack-dev-server的代理模式了。通过webpack-dev-server来代理spring-boot中tomcat的端口（默认8080）</p>
+<p>这里贴出我的一个配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">// webpack.config.js</div><div class="line"></div><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var webpack = require(&apos;webpack&apos;);</div><div class="line">var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">    devtool: &quot;source-map&quot;,</div><div class="line">    entry: [</div><div class="line">        &quot;webpack-dev-server/client?http://localhost:3000&quot;,</div><div class="line">        &quot;webpack/hot/only-dev-server&quot;,</div><div class="line">        &quot;./src/main/web/index.js&quot;</div><div class="line">    ],</div><div class="line">    output: &#123;</div><div class="line">        path: &quot;./src/main/resources/static&quot;,</div><div class="line">        filename: &quot;index.js&quot;,</div><div class="line">        publicPath: &apos;http://localhost:3000/&apos;</div><div class="line">    &#125;,</div><div class="line">    module: &#123;</div><div class="line">        loaders: [</div><div class="line">            &#123;test: /\.css$/, loader: &quot;style!css&quot;&#125;,</div><div class="line">            &#123;</div><div class="line">                test: /\.js$/, loader: &quot;babel-loader&quot;,</div><div class="line">                exclude: /node_modules/,</div><div class="line">                query: &#123;</div><div class="line">                    presets: [&apos;es2015&apos;]</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            &#123; test: /\.(png|jpg|jpeg|gif|woff)$/, loader: &apos;url-loader?limit=8192&apos; &#125;,</div><div class="line">            &#123; test: /\.html$/, loader: &apos;html&apos;&#125;,</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    plugins: [</div><div class="line">        new webpack.HotModuleReplacementPlugin(),</div><div class="line">        new webpack.NoErrorsPlugin(),</div><div class="line">        new HtmlWebpackPlugin(&#123;</div><div class="line">        template: &apos;./src/main/web/index.tmpl&apos;</div><div class="line">    &#125;)],</div><div class="line">    devServer: &#123;</div><div class="line">        port: 3000,</div><div class="line">        proxy: &#123;</div><div class="line">            &apos;**&apos;: &#123;</div><div class="line">                target: &apos;http://localhost:8080&apos;,</div><div class="line">                secure: false,</div><div class="line">                prependPath: false</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        publicPath: &apos;http://localhost:3000/&apos;,</div><div class="line">        historyApiFallback: true</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>在这里我们可以看到，通过webpack-dev-server的3000端口去代理8080端口。在package.json中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;webpack&quot;: &quot;webpack&quot;,</div><div class="line">  &quot;watch&quot;: &quot;webpack-dev-server --inline&quot;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>之后直接启动spring boot程序，然后<code>npm run watch</code>就可以通过访问3000端口来进行前端的热开发了</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/28/spring-boot-webpack-dev-server/" class="archive-article-date">
+  	<time datetime="2016-09-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/15/spring-boot-websocket/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          spring-boot支持websocket
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/26/spring-boot-html/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring boot直接返回静态html</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="spring-boot-webpack-dev-server" data-title="spring-boot 和 webpack-dev-server联合开发" data-url="http://mrchenatu.com/2016/09/28/spring-boot-webpack-dev-server/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"chenatu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 chenatu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/cassandra/" style="font-size: 13.33px;">cassandra</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/方法论/" style="font-size: 10px;">方法论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/美团/" style="font-size: 10px;">美团</a> <a href="/tags/运维/" style="font-size: 13.33px;">运维</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个java web程序员，希望自己两年之内能成为data scientist，正在找工作</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

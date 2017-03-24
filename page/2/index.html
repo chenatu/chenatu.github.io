@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="RtplVEaFsiFuMI40JSZnt-DhN77grlWJfIdnUzmPtu4" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>每天进步一点点</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="每天进步一点点">
+<meta property="og:url" content="http://mrchenatu.com/page/2/index.html">
+<meta property="og:site_name" content="每天进步一点点">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每天进步一点点">
+  
+    <link rel="alternative" href="/atom.xml" title="每天进步一点点" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d5516c4f9e5c86bdd58e7c4858fd977f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/asset/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">chenatu</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/coding/">coding</a></li>
+	        
+				<li><a href="/categories/life/">life</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">chenatu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/asset/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">chenatu</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/coding/">coding</a></li>
+		        
+					<li><a href="/categories/life/">life</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        
+  
+    <article id="post-spring-boot-websocket" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/15/spring-boot-websocket/">spring-boot支持websocket</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>spring-boot本身对websocket提供了很好的支持，可以直接原生支持sockjs和stomp协议。百度搜了一些中文文档，虽然也能实现websocket，但是并没有直接使用spring-boot直接支持的websocket的特性。</p>
+<p>在实践中觉得stromp协议对于websocket开发的自由度影响比较大。这里给大家展示一种自由度比较大的方案。</p>
+<p>主要就是三个组件，config，interceptor和handler</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@Configuration</div><div class="line">@EnableWebSocket</div><div class="line">public class MessageWebSocketConfig implements WebSocketConfigurer &#123;</div><div class="line">    @Override</div><div class="line">    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) &#123;</div><div class="line">        registry.addHandler(messageWebSocketHandler(), &quot;/sockjs/message&quot;)</div><div class="line">                .addInterceptors(new MessageWebSocketInterceptor()).withSockJS();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public MessageWebSocketHandler messageWebSocketHandler() &#123;</div><div class="line">        return new MessageWebSocketHandler();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>config需要继承<code>WebSocketConfigurer</code>需要重写<code>registerWebSocketHandlers</code>方法，指明handler和interceptor。</p>
+<p>interceptor顾名思义为拦截器我们可以在websocket建立之间和之后做一些事情。重载<code>beforeHandshake</code>和<code>afterHandshake</code>就OK。我在<code>beforeHandshake</code>这里还操作了<code>attributes</code>。被修改的<code>attributes</code>会被带到后面websocket的session之中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class MessageWebSocketInterceptor implements HandshakeInterceptor &#123;</div><div class="line">    @Override</div><div class="line">    public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map&lt;String, Object&gt; attributes) throws Exception &#123;</div><div class="line">        if (request instanceof ServletServerHttpRequest) &#123;</div><div class="line">            ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) request;</div><div class="line">            String siteId = servletRequest.getServletRequest().getParameter(&quot;siteId&quot;);</div><div class="line">            String userId = servletRequest.getServletRequest().getParameter(&quot;userId&quot;);</div><div class="line">            if (siteId == null || userId == null) &#123;</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">            attributes.put(&quot;siteId&quot;, siteId);</div><div class="line">            attributes.put(&quot;userId&quot;, userId);</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Exception exception) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>handler里面就可以写websocket的逻辑啦<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">public class MessageWebSocketHandler implements WebSocketHandler &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void afterConnectionEstablished(WebSocketSession session) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void handleMessage(WebSocketSession session, WebSocketMessage&lt;?&gt; message) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void handleTransportError(WebSocketSession session, Throwable exception) &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean supportsPartialMessages() &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>spring-boot单元测试可以写websocket-client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">@RunWith(SpringRunner.class)</div><div class="line">@SpringBootTest(classes = &#123;Application.class&#125;, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</div><div class="line">public class WebsocketTest &#123;</div><div class="line">    private final Logger logger = LoggerFactory.getLogger(WebsocketTest.class);</div><div class="line">    private final WebSocketHttpHeaders headers = new WebSocketHttpHeaders();</div><div class="line">    final CountDownLatch latch = new CountDownLatch(1);</div><div class="line">    final AtomicReference&lt;Throwable&gt; failure = new AtomicReference&lt;&gt;();</div><div class="line">    @LocalServerPort</div><div class="line">    private int port;</div><div class="line">    private SockJsClient sockJsClient;</div><div class="line"></div><div class="line">    @Before</div><div class="line">    public void setup() &#123;</div><div class="line">        List&lt;Transport&gt; transports = new ArrayList&lt;&gt;();</div><div class="line">        transports.add(new WebSocketTransport(new StandardWebSocketClient()));</div><div class="line">        transports.add(new RestTemplateXhrTransport());</div><div class="line">        this.sockJsClient = new SockJsClient(transports);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Test</div><div class="line">    public void getGreeting() throws Exception &#123;</div><div class="line"></div><div class="line">        this.sockJsClient.doHandshake(new TestWebSocketHandler(failure),</div><div class="line">                &quot;ws://localhost:&quot;+String.valueOf(port)+&quot;/sockjs/message?siteId=webtrn&amp;userId=lucy&quot;);</div><div class="line">        if (latch.await(60, TimeUnit.SECONDS)) &#123;</div><div class="line">            if (failure.get() != null) &#123;</div><div class="line">                throw new AssertionError(&quot;&quot;, failure.get());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            fail(&quot;Greeting not received&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    private class TestWebSocketHandler implements WebSocketHandler &#123;</div><div class="line"></div><div class="line">        private final AtomicReference&lt;Throwable&gt; failure;</div><div class="line"></div><div class="line">        TestWebSocketHandler() &#123;</div><div class="line">            this.failure = null;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ;</div><div class="line"></div><div class="line">        TestWebSocketHandler(AtomicReference&lt;Throwable&gt; failure) &#123;</div><div class="line">            this.failure = failure;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void afterConnectionEstablished(WebSocketSession session) throws Exception &#123;</div><div class="line">            logger.info(&quot;client connection established&quot;);</div><div class="line">            session.sendMessage(new TextMessage(&quot;hello websocket server!&quot;));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void handleMessage(WebSocketSession session, WebSocketMessage&lt;?&gt; message) throws Exception &#123;</div><div class="line">            String payload = (String) message.getPayload();</div><div class="line">            logger.info(&quot;client handle message: &quot; + payload);</div><div class="line">            if (payload.equals(&quot;hello websocket client! webtrn lucy&quot;)) &#123;</div><div class="line">                latch.countDown();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            if (payload.equals(&quot;web socket notify&quot;)) &#123;</div><div class="line">                latch.countDown();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception &#123;</div><div class="line">            logger.info(&quot;client transport error&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception &#123;</div><div class="line">            logger.info(&quot;client connection closed&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public boolean supportsPartialMessages() &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果采用stomp协议的话可以参考spring-boot的一个<a href="https://spring.io/guides/gs/messaging-stomp-websocket/" target="_blank" rel="external">ws-guide</a>。有问题还是直接看spring文档比较好。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/15/spring-boot-websocket/" class="archive-article-date">
+  	<time datetime="2016-10-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/websocket/">websocket</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spring-boot-webpack-dev-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/28/spring-boot-webpack-dev-server/">spring-boot 和 webpack-dev-server联合开发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当前前后端架构分离的模式比较流行，前端用Nodejs或者ngnix等方式发布与渲染网页，后端程序只提供restful的数据接口。但对于一些小项目来说，并不想让前后端如此分离，还是希望用spring-boot的内置tomcat来serve static content。</p>
+<p>如果只是用前端工具的话，webpack是一个很好的打包方式，webpack-dev-server给我们提供了很好的在线调试与修改。但是与spring-boot结合起来就不太协调。这时候就可以用到webpack-dev-server的代理模式了。通过webpack-dev-server来代理spring-boot中tomcat的端口（默认8080）</p>
+<p>这里贴出我的一个配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">// webpack.config.js</div><div class="line"></div><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var webpack = require(&apos;webpack&apos;);</div><div class="line">var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">    devtool: &quot;source-map&quot;,</div><div class="line">    entry: [</div><div class="line">        &quot;webpack-dev-server/client?http://localhost:3000&quot;,</div><div class="line">        &quot;webpack/hot/only-dev-server&quot;,</div><div class="line">        &quot;./src/main/web/index.js&quot;</div><div class="line">    ],</div><div class="line">    output: &#123;</div><div class="line">        path: &quot;./src/main/resources/static&quot;,</div><div class="line">        filename: &quot;index.js&quot;,</div><div class="line">        publicPath: &apos;http://localhost:3000/&apos;</div><div class="line">    &#125;,</div><div class="line">    module: &#123;</div><div class="line">        loaders: [</div><div class="line">            &#123;test: /\.css$/, loader: &quot;style!css&quot;&#125;,</div><div class="line">            &#123;</div><div class="line">                test: /\.js$/, loader: &quot;babel-loader&quot;,</div><div class="line">                exclude: /node_modules/,</div><div class="line">                query: &#123;</div><div class="line">                    presets: [&apos;es2015&apos;]</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            &#123; test: /\.(png|jpg|jpeg|gif|woff)$/, loader: &apos;url-loader?limit=8192&apos; &#125;,</div><div class="line">            &#123; test: /\.html$/, loader: &apos;html&apos;&#125;,</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    plugins: [</div><div class="line">        new webpack.HotModuleReplacementPlugin(),</div><div class="line">        new webpack.NoErrorsPlugin(),</div><div class="line">        new HtmlWebpackPlugin(&#123;</div><div class="line">        template: &apos;./src/main/web/index.tmpl&apos;</div><div class="line">    &#125;)],</div><div class="line">    devServer: &#123;</div><div class="line">        port: 3000,</div><div class="line">        proxy: &#123;</div><div class="line">            &apos;**&apos;: &#123;</div><div class="line">                target: &apos;http://localhost:8080&apos;,</div><div class="line">                secure: false,</div><div class="line">                prependPath: false</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        publicPath: &apos;http://localhost:3000/&apos;,</div><div class="line">        historyApiFallback: true</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>在这里我们可以看到，通过webpack-dev-server的3000端口去代理8080端口。在package.json中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;webpack&quot;: &quot;webpack&quot;,</div><div class="line">  &quot;watch&quot;: &quot;webpack-dev-server --inline&quot;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>之后直接启动spring boot程序，然后<code>npm run watch</code>就可以通过访问3000端口来进行前端的热开发了</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/28/spring-boot-webpack-dev-server/" class="archive-article-date">
+  	<time datetime="2016-09-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spring-boot-html" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/26/spring-boot-html/">spring boot直接返回静态html</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通常spring boot的一般教程的例子都是通过模板来返回页面，比如thymeleaf或者freemarker，但是直接返回html的例子比较少。本文参考文章<a href="http://www.ekiras.com/2016/06/how-to-display-static-html-in-springboot-mvc.html" target="_blank" rel="external">SpringBoot : How to display static html file in Spring boot MVC application</a>。说明如何让spring boot直接返回html。</p>
+<p>一般来说<code>resources/static</code>或者<code>resources/public</code>文件夹可以用来提供<code>js</code>,<code>css</code>,图片等文件访问。不经过配置，直接返回<code>html</code>会报404错误。提供静态html访问主要需要如下配置（懒得翻译了。。。）</p>
+<ul>
+<li>You should create a class that extends <code>WebMvcConfigurerAdapter</code></li>
+<li>Your class should have <code>@Configuration</code> annotation.</li>
+<li>You class should not have <code>@EnableMvc</code> annotation.</li>
+<li>Override <code>addViewControllers</code> method and add your mapping.</li>
+<li>Override <code>configurePathMatch</code> method and update suffix path matching</li>
+</ul>
+<p>其实，添加如下配置类就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Configuration  </div><div class="line">public class MvcConfigurer extends WebMvcConfigurerAdapter &#123;  </div><div class="line">  </div><div class="line">    @Override  </div><div class="line">    public void addViewControllers(ViewControllerRegistry registry) &#123;  </div><div class="line">        registry.addViewController(&quot;/error&quot;).setViewName(&quot;error.html&quot;);  </div><div class="line">        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);  </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    @Override  </div><div class="line">    public void configurePathMatch(PathMatchConfigurer configurer) &#123;  </div><div class="line">        super.configurePathMatch(configurer);  </div><div class="line">        configurer.setUseSuffixPatternMatch(false);  </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/26/spring-boot-html/" class="archive-article-date">
+  	<time datetime="2016-09-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-26</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-custom-aop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/custom-aop/">像@Transactional一样利用注解自定义aop切片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在spring中，利用@Transactional注解可以很轻松的利用aop技术进行事物管理。在实际项目中，直接利用自定义注解实现切片可以大大的提高我们的编码效率以及代码的简洁性。</p>
+<p>实现以上的目标，主要涉及两方面工作。</p>
+<ol>
+<li>自定义注解</li>
+<li>将注解声明为切片</li>
+</ol>
+<h2 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h2><p>介绍注解自定义的文章比较多，这里简要介绍一下以下面的代码为例。该代码要实现一个分布式锁的代码。首先利用<code>@interface</code>来声明该类为接口类，用<code>@Target</code>来声明该注解的作用范围。该例子中<code>ElementType.METHOD, ElementType.TYPE</code>表明该注解作用范围是方法和类。<code>@Retention</code>注明该注解的作用周期。<code>RetentionPolicy.RUNTIME</code>表明该注解在运行时也是有效的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">package com.whaty.lock.annotation;</div><div class="line"></div><div class="line">import org.springframework.stereotype.Component;</div><div class="line"></div><div class="line">import java.lang.annotation.ElementType;</div><div class="line">import java.lang.annotation.Retention;</div><div class="line">import java.lang.annotation.RetentionPolicy;</div><div class="line">import java.lang.annotation.Target;</div><div class="line"></div><div class="line">@Component</div><div class="line">@Target(value = &#123;ElementType.METHOD, ElementType.TYPE&#125;)</div><div class="line">@Retention(value = RetentionPolicy.RUNTIME)</div><div class="line">public @interface Lock &#123;</div><div class="line"></div><div class="line">    public LockImpl lockImpl() default LockImpl.MYSQL;</div><div class="line"></div><div class="line">    public enum LockImpl &#123;</div><div class="line">        MYSQL, ZOOKEEPER</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="将注解声明为切片"><a href="#将注解声明为切片" class="headerlink" title="将注解声明为切片"></a>将注解声明为切片</h2><p>下面的代码是实现注解切片逻辑的代码。其中@Aspect用来声明切片的实现。在这个代码里面，最关键的一步是<br><code>@Around(value = &quot;@annotation(com.whaty.lock.annotation.Lock)&quot;)</code><br>这个声明与普通的注解式声明切片类似，只是其中<code>@annotation</code>表明该切片作用范围为声明的注解作用范围。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">package com.whaty.lock.aspect;</div><div class="line"></div><div class="line">import org.aspectj.lang.ProceedingJoinPoint;</div><div class="line">import org.aspectj.lang.annotation.Around;</div><div class="line">import org.aspectj.lang.annotation.Aspect;</div><div class="line">import org.springframework.stereotype.Component;</div><div class="line"></div><div class="line">@Component</div><div class="line">@Aspect</div><div class="line">public class LockAspect &#123;</div><div class="line">    @Around(value = &quot;@annotation(com.whaty.lock.annotation.Lock)&quot;)</div><div class="line">    void execute(ProceedingJoinPoint proceedingJoinPoint) throws Throwable &#123;</div><div class="line">        // 尝试获取锁</div><div class="line">        proceedingJoinPoint.proceed();</div><div class="line">        // 释放锁</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/08/02/custom-aop/" class="archive-article-date">
+  	<time datetime="2016-08-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-08-02</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spring-boot-filter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/spring-boot-filter/">Spring boot中如何定义过滤器Filter</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近刚刚接手使用spring boot，真是一个开发很顺手的工具。在这里总结一下自己发现的基于<code>@Configuration</code>的注解定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">package example.hello;</div><div class="line"></div><div class="line">import org.springframework.boot.context.embedded.FilterRegistrationBean;</div><div class="line">import org.springframework.context.annotation.Bean;</div><div class="line">import org.springframework.context.annotation.Configuration;</div><div class="line"></div><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">@Configuration</div><div class="line">public class WebConfig &#123;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public FilterRegistrationBean greetingFilterRegistrationBean() &#123;</div><div class="line">        FilterRegistrationBean registrationBean = new FilterRegistrationBean();</div><div class="line">        registrationBean.setName(&quot;greeting&quot;);</div><div class="line">        GreetingFilter greetingFilter = new GreetingFilter();</div><div class="line">        registrationBean.setFilter(greetingFilter);</div><div class="line">        registrationBean.setOrder(1);</div><div class="line">        List&lt;String&gt; urlList = new ArrayList&lt;String&gt;();</div><div class="line">        urlList.add(&quot;/abc&quot;);</div><div class="line">        registrationBean.setUrlPatterns(urlList);</div><div class="line">        return registrationBean;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public FilterRegistrationBean helloFilterRegistrationBean() &#123;</div><div class="line">        FilterRegistrationBean registrationBean = new FilterRegistrationBean();</div><div class="line">        registrationBean.setName(&quot;hello&quot;);</div><div class="line">        HelloFilter helloFilter = new HelloFilter();</div><div class="line">        registrationBean.setFilter(helloFilter);</div><div class="line">        registrationBean.setOrder(2);</div><div class="line">        return registrationBean;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /*</div><div class="line">    @Bean</div><div class="line">    @Order(1)</div><div class="line">    Filter greetingFilter() &#123;</div><div class="line">        return new GreetingFilter();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    @Order(2)</div><div class="line">    public Filter helloFilter() &#123;</div><div class="line">        return new HelloFilter();</div><div class="line">    &#125;*/</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中<code>GreetingFilter</code>和<code>HelloFiter</code>是定义的简单的打印字符串过滤器。在<code>@Configuration</code>中，声明注解<code>@Bean</code>相当于在Spring老版本中在配置文件中声明一个Bean。</p>
+<p>在这里展示了两种过滤器声明方式，第一种利用<code>FilterRegistrationBean</code>可以详细地更好地详细的定义过滤器。第二种注释掉的，声明方式更简单，代码更加简洁。</p>
+<p>在这里也咨询大家一个问题，用第二种方式如何声明UrlPattern呢，貌似没有相关的注解</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/08/spring-boot-filter/" class="archive-article-date">
+  	<time datetime="2016-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-multiple-datasource" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/multiple-datasource/">单数据源访问多数据库的路由开发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在某些可以配置多站点的开发框架中，如果每个站点单独配置了单独的数据库。那么利用单一数据源根据不同的站点切换不同的数据库比较方便。</p>
+<p>在这里展示了spring框架下的解决方案。利用了spring的<code>org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource</code></p>
+<p>站点路由的datasource <code>SiteRoutingDataSource</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;</div><div class="line"></div><div class="line">public class SiteRoutingDataSource extends AbstractRoutingDataSource &#123;</div><div class="line"></div><div class="line">  @Override</div><div class="line">  protected Object determineCurrentLookupKey() &#123;</div><div class="line">    return SiteContextHolder.getSiteCode();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>用来判定当前站点的工具类<code>SiteContextHolder</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import org.springframework.util.Assert;</div><div class="line"></div><div class="line">public class SiteContextHolder &#123;</div><div class="line"></div><div class="line">  private static final ThreadLocal&lt;String&gt; contextHolder =</div><div class="line">    new ThreadLocal&lt;String&gt;();</div><div class="line"></div><div class="line">  public static void setSiteCode(String siteCode) &#123;</div><div class="line">    Assert.notNull(siteCode, &quot;siteCode cannot be null&quot;);</div><div class="line">    contextHolder.set(siteCode);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public static String getSiteCode() &#123;</div><div class="line">    return (String) contextHolder.get();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public static void clearSiteCode() &#123;</div><div class="line">    contextHolder.remove();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>spring的xml配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;hgc&quot;</div><div class="line">      class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;</div><div class="line">      destroy-method=&quot;close&quot;&gt;</div><div class="line">    &lt;property name=&quot;driverClass&quot;&gt;</div><div class="line">        &lt;value&gt;$&#123;hgc.datasource.driverClassName&#125;&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">    &lt;property name=&quot;jdbcUrl&quot;&gt;</div><div class="line">        &lt;value&gt;$&#123;hgc.datasource.url&#125;&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">    &lt;property name=&quot;user&quot;&gt;</div><div class="line">        &lt;value&gt;$&#123;hgc.datasource.username&#125;&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">    &lt;property name=&quot;password&quot;&gt;</div><div class="line">        &lt;value&gt;$&#123;hgc.datasource.password&#125;&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line">&lt;bean id=&quot;ahpu&quot;</div><div class="line">      class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;</div><div class="line">      destroy-method=&quot;close&quot;&gt;</div><div class="line">    &lt;property name=&quot;driverClass&quot;&gt;</div><div class="line">        &lt;value&gt;$&#123;ahpu.datasource.driverClassName&#125;&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">    &lt;property name=&quot;jdbcUrl&quot;&gt;</div><div class="line">        &lt;value&gt;$&#123;ahpu.datasource.url&#125;&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">    &lt;property name=&quot;user&quot;&gt;</div><div class="line">        &lt;value&gt;$&#123;ahpu.datasource.username&#125;&lt;/value&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">    &lt;property name=&quot;password&quot;&gt;</div><div class="line">        &lt;value&gt;$&#123;ahpu.datasource.password&#125;&lt;/value&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line">    &lt;bean id=&quot;dataSource&quot; class=&quot;SiteRoutingDataSource&quot;&gt;</div><div class="line">    &lt;property name=&quot;targetDataSources&quot;&gt;</div><div class="line">        &lt;map key-type=&quot;java.lang.String&quot;&gt;</div><div class="line">            &lt;entry key=&quot;hgc&quot; value-ref=&quot;hgc&quot;/&gt;</div><div class="line">            &lt;entry key=&quot;ahpu&quot; value-ref=&quot;ahpu&quot;/&gt;</div><div class="line">        &lt;/map&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">    &lt;property name=&quot;defaultTargetDataSource&quot; ref=&quot;ahpu&quot;/&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure></p>
+<p>在使用过程中 通过 <code>SiteContextHolder.setSiteCode(CODE);</code>来进行数据源选择。在切换数据库之前，需要先<code>SiteContextHolder.clearSiteCode();</code>再进行切换</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/05/multiple-datasource/" class="archive-article-date">
+  	<time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spring-mvc-form" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/spring-mvc-form/">spring mvc处理表单</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用spring mvc时 提交表单遇到了如下问题</p>
+<p>表单请求的headers通常有两种content type： application/x-www-form-urlencoded和multipart/form-data。前一种类似于get请求用&amp;连接参数，通常适用于字符串，第二种就通常适用于文件和参数混合的类型。</p>
+<p>对于第一种请求参数，Spring mvc的大多数例子都默认支持。</p>
+<p>对于第二种Controller的函数输入参数可以采用MultipartHttpServletRequest，并在spring配置文件中添加如下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;multipartResolver&quot;</div><div class="line">      class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!-- setting maximum upload size --&gt;</div><div class="line">    &lt;property name=&quot;maxUploadSize&quot; value=&quot;100000&quot;/&gt;</div><div class="line"></div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure>
+<p>添加如下maven依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.3.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;commons-io&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;2.4&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/05/spring-mvc-form/" class="archive-article-date">
+  	<time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java-threadpool-policy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/java-threadpool-policy/">限制Java线程池运行线程以及等待线程数量的策略</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于<code>java.util.concurrent.Executors</code>所提供的<code>FixedThreadPool</code>，可以保证可以在内存中有固定数量的线程数运行。但是由于<code>FixedThreadPool</code>绑定的是<code>LinkedBlockingQueue</code>。队列的上限没有限制（默认上限为<code>Integer.MAX_VALUE</code>），不断的提交新的线程，会造成任务在内存中长时间的堆积。</p>
+<p>我们有可能面临如下的场景，主线程不断地提交任务线程，希望有固定数量的在线程中运行，也不想造成线程在内存中大量的等待堆积。由此需要我们自己定义一个线程池策略。<code>ThreadPoolExecutor</code>为我们线程池的设置提供了很大的灵活性。</p>
+<p>首先看<code>FixedThreadPool</code>的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public static ExecutorService More ...newFixedThreadPool(int nThreads, ThreadFactory threadFactory) &#123;</div><div class="line">        return new ThreadPoolExecutor(nThreads, nThreads,</div><div class="line">                                      0L, TimeUnit.MILLISECONDS,</div><div class="line">                                      new LinkedBlockingQueue&lt;Runnable&gt;(),</div><div class="line">                                      threadFactory);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>可以看到，FixedThreadPool绑定的是<code>LinkedBlockingQueue&lt;Runnable&gt;</code>。我们需要做的第一个改造就是绑定有大小上线的BlockingQueue，在我的实现中绑定<code>ArrayBlockingQueue&lt;Runnable&gt;</code>并设置了size。</p>
+<p>第二个是采用CallerRunsPolicy。ThreadPoolExecutor可以定义不同的任务拒绝策略。CallerRunsPolicy指的是当线程池拒绝该任务的时候，线程在本地线程直接<code>execute</code>。这样就限制了本地线程的循环提交流程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">BlockingQueue&lt;Runnable&gt; workingQueue = new ArrayBlockingQueue&lt;Runnable&gt;(10);</div><div class="line">   RejectedExecutionHandler rejectedExecutionHandler =</div><div class="line">       new ThreadPoolExecutor.CallerRunsPolicy();</div><div class="line">   ExecutorService threadPool = new ThreadPoolExecutor(10, 10, 0L, TimeUnit.MILLISECONDS,</div><div class="line">       workingQueue, rejectedExecutionHandler);</div><div class="line"></div><div class="line">   for (int i = 0; i &lt; 100; i++) &#123;</div><div class="line">     </div><div class="line">     threadPool.submit(new Callable&lt;Boolean&gt;() &#123;</div><div class="line"></div><div class="line">       @Override</div><div class="line">       public Boolean call() throws Exception &#123;</div><div class="line">         System.out.println(&quot;thread &quot; + String.valueOf(threadNo) + &quot; is called&quot;);</div><div class="line">         Thread.sleep(10000);</div><div class="line">         System.out.println(&quot;thread &quot; + String.valueOf(threadNo) + &quot; is awake&quot;);</div><div class="line">         throw new Exception();</div><div class="line">       &#125;</div><div class="line"></div><div class="line">     &#125;);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>代码中定义了大小为10的线程池，for循环提交了20个线程的时候，10个执行线程，10个线程放入了<code>workingQueue</code>。当提交到第21个线程的时候，会触发RejectedExecutionHandler。在这里我们配置了CallerRunsPolicy策略。所以会在主线程直接执行该线程。也就是说，在本程序中最多会有11个线程在执行，10个线程在等待。由此限制了线程池的等待线程数与执行线程数</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/05/java-threadpool-policy/" class="archive-article-date">
+  	<time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-cassandra-performance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/03/cassandra-performance/">cassandra查询效率探讨</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>cassandra目前提倡的建表与查询方式为CQL方式，传统的cassandra-cli相关的api由于性能问题将逐步淘汰，而cassandra-cli也将在2.2版本之后被淘汰。</p>
+<p>在CQL中，可以利用类似SQL的方式建立数据表，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE monitor (</div><div class="line">    id bigint,</div><div class="line">    value text,</div><div class="line">    num int,</div><div class="line">    timestamp timestamp,</div><div class="line">    PRIMARY KEY (id, timestamp ));</div></pre></td></tr></table></figure>
+<p>其中id与timestamp共同构成了primary key。primary key可以不止一个字段，大于一个字段的可以构成clustering key。其中在primary key中第一个字段为partition key，用来决定row在整个ring中的分布。后面的字段为clustering key，对于同一个partition key所代表的行，是根据clustering key以一定顺序在物理上相邻存储的。所以根据partition key以及clustering key进行联合查询速度会比较快。cassandra对于如下查询效率比较高</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select * from monitor WHERE id = 1;</div><div class="line">select * from monitor WHERE id = 2 AND timestamp = &apos;2015-12-01 12:00:00+0800&apos;;</div><div class="line">select * from monitor WHERE id = 2 AND timestamp &gt; &apos;2015-12-01 12:00:00+0800&apos; AND timestamp &lt; &apos;2015-12-01 23:00:00+0800&apos;;</div></pre></td></tr></table></figure>
+<p>但是对于下面的查询，cassandra会返回<code>InvalidRequest: code=2200 [Invalid query] message=&quot;Cannot execute this query as it might involve data filtering and thus may have unpredictable performance. If you want to execute this query despite the performance unpredictability, use ALLOW FILTERING&quot;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from monitor WHERE timestamp = &apos;2015-12-01 12:00:00+0800&apos;;</div></pre></td></tr></table></figure></p>
+<p>其原因为是cassandra认为这查询效率比较低下，需要用户显式地增加<code>ALLOW FILTERING</code>修饰。这种查询过程是先获取所有行，然后在根据<code>timestamp = &#39;2015-12-01 12:00:00+0800&#39;</code>进行过滤，效率自然比较低。</p>
+<p>解决的办法通常有在<code>timestamp</code>字段上建立所以。但不能简单地将cassandra建立索引的机制与普通的关系型数据库如mysql划等号。通过primary key查询，可以通过ring的信息很快的定位到具体的节点。但是通过index查询字段的话，cassandra会每个节点进行查询。虽然节点内部也会对本地数据进行索引，但是效率还是远不如直接查询primary key快。此外cassandra并不能够对于<code>timestamp &gt;&#39;2015-12-01 12:00:00+0800&#39;</code>这种范围条件进行查询。所以更好的方式是另外建立一个表，将需要查询的字段作为主键，并存储对应关系。</p>
+<p><strong>参考资料</strong></p>
+<ol>
+<li><a href="http://www.datastax.com/dev/blog/allow-filtering-explained-2" target="_blank" rel="external">ALLOW FILTERING explained</a></li>
+<li><a href="http://www.datastax.com/dev/blog/a-deep-look-to-the-cql-where-clause" target="_blank" rel="external">A deep look at the CQL WHERE clause</a></li>
+<li><a href="http://docs.datastax.com/en/cql/3.0/cql/ddl/ddl_build_index_c.html" target="_blank" rel="external">When to use an index</a></li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/03/cassandra-performance/" class="archive-article-date">
+  	<time datetime="2016-07-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-03</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cassandra/">cassandra</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-cassandra-pagination" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/03/cassandra-pagination/">cassandra分页</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在cassandra的协议中，没有具体规定查询结果的行数限制。但是对于大的数据集，依然有结果分页的必要。过大的结果集会爆掉服务端或者客户端的内存。</p>
+<p>传统的分页方法采用了一点trick，采用了token函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM images LIMIT 100;</div><div class="line">SELECT * FROM images WHERE token(image_id) &gt; token([Last image ID received]) LIMIT 100;</div></pre></td></tr></table></figure>
+<p>这种方式会造成一点编程上的麻烦，一般开发中会重新再封装一次分页的方法。在cassandra2.0的java api中，添加了对于分页的支持，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Statement stmt = new SimpleStatement(&quot;select * FROM raw_weather_data WHERE wsid= &apos;725474:99999&apos; AND year = 2005 AND month = 6&quot;);</div><div class="line">stmt.setFetchSize(24);</div><div class="line">ResultSet rs = session.execute(stmt);</div><div class="line">Iterator&lt;Row&gt; iter = rs.iterator();</div><div class="line">while (!rs.isFullyFetched()) &#123;</div><div class="line">   rs.fetchMoreResults();</div><div class="line">   Row row = iter.next();</div><div class="line">   System.out.println(row);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>参考资料</strong></p>
+<ol>
+<li><a href="https://ahappyknockoutmouse.wordpress.com/2014/11/12/246/" target="_blank" rel="external">Things You Should Be Doing When Using Cassandra Drivers</a></li>
+<li><a href="http://www.datastax.com/dev/blog/client-side-improvements-in-cassandra-2-0" target="_blank" rel="external">Improvements on the driver side with Cassandra 2.0</a></li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/03/cassandra-pagination/" class="archive-article-date">
+  	<time datetime="2016-07-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-03</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cassandra/">cassandra</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 chenatu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/cassandra/" style="font-size: 13.33px;">cassandra</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/方法论/" style="font-size: 10px;">方法论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/美团/" style="font-size: 10px;">美团</a> <a href="/tags/运维/" style="font-size: 13.33px;">运维</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个java web程序员，希望自己两年之内能成为data scientist，正在找工作</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

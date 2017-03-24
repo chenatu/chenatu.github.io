@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="RtplVEaFsiFuMI40JSZnt-DhN77grlWJfIdnUzmPtu4" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>每天进步一点点</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="每天进步一点点">
+<meta property="og:url" content="http://mrchenatu.com/index.html">
+<meta property="og:site_name" content="每天进步一点点">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每天进步一点点">
+  
+    <link rel="alternative" href="/atom.xml" title="每天进步一点点" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d5516c4f9e5c86bdd58e7c4858fd977f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/asset/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">chenatu</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/coding/">coding</a></li>
+	        
+				<li><a href="/categories/life/">life</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">chenatu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/asset/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">chenatu</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/coding/">coding</a></li>
+		        
+					<li><a href="/categories/life/">life</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/chenatu" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chen-shuo-76" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        
+  
+    <article id="post-mysql-tool" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/24/mysql-tool/">MySQL问题排查工具介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本总结来自美团内部分享，屏蔽了内部数据与工具</p>
+<h2 id="知识准备"><a href="#知识准备" class="headerlink" title="知识准备"></a>知识准备</h2><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><ul>
+<li>索引是存储引擎用于快速找到记录的一种数据结构</li>
+<li>B-Tree，适用于全键值，键值范围或键最左前缀：(A,B,C): A, AB, ABC,B,C,BC</li>
+<li>哪些列建议创建索引：WHERE, JOIN , GROUP BY, ORDER BY等语句使用的列</li>
+<li>如何选择索引列的顺序：<ol>
+<li>经常被使用到的列优先</li>
+<li>选择性高的列优先：选择性=distinct(col)/count(col) </li>
+<li>宽度小的列优先：宽度 = 列的数据类型</li>
+</ol>
+</li>
+</ul>
+<h3 id="慢查询"><a href="#慢查询" class="headerlink" title="慢查询"></a>慢查询</h3><h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><ol>
+<li>未使用索引</li>
+<li>索引不优</li>
+<li>服务器配置不佳</li>
+<li>死锁</li>
+<li>…</li>
+</ol>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><h5 id="看版本"><a href="#看版本" class="headerlink" title="看版本"></a>看版本</h5><p>mysql -V 客户端版本 select version 服务器版本</p>
+<h5 id="explain-执行计划，慢查询分析神器"><a href="#explain-执行计划，慢查询分析神器" class="headerlink" title="explain 执行计划，慢查询分析神器"></a>explain 执行计划，慢查询分析神器</h5><ul>
+<li><p>type</p>
+<ul>
+<li>const,system: 最多匹配一个行，使用主键或者unique进行索引</li>
+<li>eq_ref: 返回一行数据，通常在联接时出现，使用主键或者unique索引（内表索引连接类型）</li>
+<li>ref: 使用key的最左前缀，且key不是主键或unique键</li>
+<li>range: 索引范围扫描，对索引的扫面开始于某一点，返回匹配的行</li>
+<li>index:以索引的顺序进行全表扫描，优点是不用排序，缺点是还要全表扫描</li>
+<li>all: 全表扫描 no no no</li>
+</ul>
+</li>
+<li><p>extra</p>
+<ul>
+<li>using index : 索引覆盖，只用到索引，可以避免访问表</li>
+<li>using where: 在存储引擎检索行后再做过滤</li>
+<li>using temporary:使用临时表，通常在使用GROUP BY，ORDER BY 时出现（严禁）</li>
+<li>using filesort:  到非索引顺序的额外排序，当order by col未使到索引时发生（严禁）</li>
+</ul>
+</li>
+<li>possible_keys: 显示查询可能使用的索引</li>
+<li>key:优化器决定采用哪个索引来优化对该表的访问</li>
+<li>rows:MySQL估算的为了找到所需行要检索的数，优化选择key的参考 （不是结果集的行数）</li>
+<li>key_len: 使用的索引左前缀的长度(字节数)，亦可理解为使用了索引中哪些字段<ul>
+<li>定长字段，int占4个字节、date占3个字节、timestamp占4个字节，char(n)占n个字节</li>
+<li>NULL的字段:需要加1个字节，因此建议尽亮设计为NOT NULL</li>
+<li>变长字段varchar(n)，则需要 (n <em> 编码字符所占字节数 + 2 、)个字节，如utf8编码的， 个字符<br>占 3个字节，则 度为 n </em> 3 + 2</li>
+</ul>
+</li>
+<li>强制使用索引: USE INDEX （建议）或 FORCE_INDEX （强制）</li>
+</ul>
+<h4 id="show-命令"><a href="#show-命令" class="headerlink" title="show 命令"></a>show 命令</h4><ul>
+<li>show status<ul>
+<li>查看select语句的执行数 show global status like ‘Com_select’;</li>
+<li>查看慢查询的个数  show global status like ‘Slow_queries’;</li>
+<li>表扫描情况 show global status like ‘Handler_read%’;  Handler_read_rnd_next / com_select &gt; 4000 需要考虑优化索引</li>
+</ul>
+</li>
+<li>show variables<ul>
+<li>查看慢查询相关的配置 show variables like ‘long_query_time’;</li>
+<li>将慢查询时间线设置为2s set global long_query_time=2;</li>
+<li>查看InnoDB缓存  show variables like ‘innodb_buffer_pool_size’;</li>
+<li>查看InnoDB缓存的使用状态 show status like ‘Innodb_buffer<em>pool</em>%’; 缓存命中率=(1-Innodb_buffer_pool_reads/ Innodb_buffer_pool_read_requests) <em> 100%；缓存率=（Innodb_buffer_pool_pages_data/ Innodb_buffer_pool_pages_total) </em> 100%</li>
+<li>SHOW PROFILES;该命令可以trace在整个执行过程中各资源消耗情况(会话级)</li>
+<li>SHOW PROCESSLIST; 查看当前有哪些线程正在运行，并且处在何种状态</li>
+<li>SHOW ENGINE INNODB STATUS; 可用于分析死锁，但需要super权限</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/24/mysql-tool/" class="archive-article-date">
+  	<time datetime="2017-03-24T00:08:58.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/开发/">开发</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-performance-tuning" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/performance-tuning/">美团分享总结：系统性能优化之道</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="典型性能问题"><a href="#典型性能问题" class="headerlink" title="典型性能问题"></a>典型性能问题</h1><ol>
+<li>响应慢：你这个服务, 总是响应超时,尽快解决下!</li>
+<li>单机容量低：就这么点量, 还要加机器?</li>
+<li>并发能力弱：这个服务并发怎么上不去呢, 查下为啥</li>
+</ol>
+<h1 id="性能优化方法论"><a href="#性能优化方法论" class="headerlink" title="性能优化方法论"></a>性能优化方法论</h1><h2 id="数据驱动"><a href="#数据驱动" class="headerlink" title="数据驱动"></a>数据驱动</h2><h2 id="系统诊断"><a href="#系统诊断" class="headerlink" title="系统诊断"></a>系统诊断</h2><h3 id="如何选择工具"><a href="#如何选择工具" class="headerlink" title="如何选择工具"></a>如何选择工具</h3><p><img src="http://7xpw11.com1.z0.glb.clouddn.com/performance-tool.png" alt="性能工具"></p>
+<h3 id="性能诊断层次"><a href="#性能诊断层次" class="headerlink" title="性能诊断层次"></a>性能诊断层次</h3><ul>
+<li>系统层：OS JVM CPU Memory Network Disk | top jstat iftop iostat dstat…</li>
+<li>组件层：Jetty DB Driver JSON Lib… | JProfiler Mtrace</li>
+<li>业务层: 业务逻辑 数据结构 算法 | 日志 Jstack Greys</li>
+</ul>
+<h3 id="例子：首页超时了"><a href="#例子：首页超时了" class="headerlink" title="例子：首页超时了"></a>例子：首页超时了</h3><ul>
+<li>排查网关问题<ul>
+<li>网络延迟数据</li>
+</ul>
+</li>
+<li>排查后端服务问题<ul>
+<li>从接入层(API层)开始检查, 首页调用链各个环节的延迟, 负载指标</li>
+<li>假设其中一个环节(比如POI 服务负载高, 响应异常). 检查服务器系统指标, OCTO 性能指标, CAT 监控数据, 日志数据 </li>
+</ul>
+</li>
+</ul>
+<h1 id="参考手册"><a href="#参考手册" class="headerlink" title="参考手册"></a>参考手册</h1><h2 id="单机容量上不去"><a href="#单机容量上不去" class="headerlink" title="单机容量上不去"></a>单机容量上不去</h2><h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><ul>
+<li>如何识别：load、cpu使用率、 CPU.Steal()</li>
+<li>如何诊断<ul>
+<li>top -bH -p <pid> -n 1 | head -n10</pid></li>
+<li>stack</li>
+<li>jstat</li>
+<li>JProfiler (能够精确定位，可以定位到具体代码消耗多少时间)<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3></li>
+</ul>
+</li>
+<li>如何识别：mem指标、swap、jvm.gc.count …</li>
+<li>如何诊断：<ul>
+<li>jstat</li>
+<li>jmap</li>
+</ul>
+</li>
+<li>精确定位：MAT<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3></li>
+<li>如何识别：net.if.*; TcpExt.ListenOverflows ;</li>
+<li>如何诊断：<ul>
+<li>netstat</li>
+<li>iftop</li>
+</ul>
+</li>
+</ul>
+<h2 id="响应时间慢"><a href="#响应时间慢" class="headerlink" title="响应时间慢"></a>响应时间慢</h2><h3 id="下游依赖方"><a href="#下游依赖方" class="headerlink" title="下游依赖方"></a>下游依赖方</h3><p>db、缓存、服务</p>
+<h3 id="同步调用"><a href="#同步调用" class="headerlink" title="同步调用"></a>同步调用</h3><h3 id="逻辑实现"><a href="#逻辑实现" class="headerlink" title="逻辑实现"></a>逻辑实现</h3><ul>
+<li>循环调用</li>
+<li>本地方法耗时过长 Greys可以分析耗时</li>
+</ul>
+<h2 id="并发上不去"><a href="#并发上不去" class="headerlink" title="并发上不去"></a>并发上不去</h2><ul>
+<li>资源瓶颈：线程池，连接池 （JProfiler检查线程）</li>
+<li>资源竞争：cpu切换，锁 （线程池并发模型 -&gt; 异步并发模型）</li>
+</ul>
+<p>Java 快速诊断性能瓶颈, 首选 JProfiler</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/21/performance-tuning/" class="archive-article-date">
+  	<time datetime="2017-02-21T15:11:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/方法论/">方法论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美团/">美团</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-druid-sql-parse" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/19/druid-sql-parse/">利用druid sql parser搞一些事情</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在最近的项目开发中，有这样一个需求，就是给定一个查询的sql，在where语句中添加几个条件语句。刚开始想的是，是否能用正则去做这个事情呢？其实不用语法树还是有一点困难的。</p>
+<p>经过一系列google，看到了我们国产的druid里面sql parse的稳当还是比较详尽。具体参考这个文档<a href="https://github.com/alibaba/druid/wiki/SQL-Parser" target="_blank" rel="external">SQL Parser</a></p>
+<p>还是回到之前的需求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">public List&lt;Map&lt;String, Object&gt;&gt; search(String sql, Map&lt;String, Object&gt; conditions) &#123;</div><div class="line">    List&lt;Map&lt;String, Object&gt;&gt; result = new ArrayList&lt;&gt;();</div><div class="line">    // SQLParserUtils.createSQLStatementParser可以将sql装载到Parser里面</div><div class="line">    SQLStatementParser parser = SQLParserUtils.createSQLStatementParser(sql, JdbcUtils.MYSQL);</div><div class="line">	// parseStatementList的返回值SQLStatement本身就是druid里面的语法树对象</div><div class="line">    List&lt;SQLStatement&gt; stmtList = parser.parseStatementList();</div><div class="line"></div><div class="line"></div><div class="line">    SQLStatement stmt = stmtList.get(0);</div><div class="line">    if (stmt instanceof SQLSelectStatement) &#123;</div><div class="line">        // convert conditions to &apos;and&apos; statement</div><div class="line">        StringBuffer constraintsBuffer = new StringBuffer();</div><div class="line">        Set&lt;String&gt; keys = conditions.keySet();</div><div class="line">        Iterator&lt;String&gt; keyIter = keys.iterator();</div><div class="line">        if (keyIter.hasNext()) &#123;</div><div class="line">            constraintsBuffer.append(keyIter.next()).append(&quot; = ?&quot;);</div><div class="line">        &#125;</div><div class="line">        while (keyIter.hasNext()) &#123;</div><div class="line">            constraintsBuffer.append(&quot; AND &quot;).append(keyIter.next()).append(&quot; = ?&quot;);</div><div class="line">        &#125;</div><div class="line">        SQLExprParser constraintsParser = SQLParserUtils.createExprParser(constraintsBuffer.toString(), JdbcUtils.MYSQL);</div><div class="line">        SQLExpr constraintsExpr = constraintsParser.expr();</div><div class="line"></div><div class="line">        SQLSelectStatement selectStmt = (SQLSelectStatement) stmt;</div><div class="line">        // 拿到SQLSelect 通过在这里打断点看对象我们可以看出这是一个树的结构</div><div class="line">        SQLSelect sqlselect = selectStmt.getSelect();</div><div class="line">        SQLSelectQueryBlock query = (SQLSelectQueryBlock) sqlselect.getQuery();</div><div class="line">        SQLExpr whereExpr = query.getWhere();</div><div class="line">        // 修改where表达式</div><div class="line">        if (whereExpr == null) &#123;</div><div class="line">            query.setWhere(constraintsExpr);</div><div class="line">        &#125; else &#123;</div><div class="line">            SQLBinaryOpExpr newWhereExpr = new SQLBinaryOpExpr(whereExpr, SQLBinaryOperator.BooleanAnd, constraintsExpr);</div><div class="line">            query.setWhere(newWhereExpr);</div><div class="line">        &#125;</div><div class="line">        sqlselect.setQuery(query);</div><div class="line">        sql = sqlselect.toString();</div><div class="line">        Session session = sessionFactory.openSession();</div><div class="line">        SQLQuery sqlQuery = session.createSQLQuery(sql);</div><div class="line">        Collection values = conditions.values();</div><div class="line">        int index = 1;</div><div class="line">        for (Object value : values) &#123;</div><div class="line">            sqlQuery.setParameter(index, value);</div><div class="line">            index++;</div><div class="line">        &#125;</div><div class="line">        result = sqlQuery.list();</div><div class="line">        session.close();</div><div class="line">    &#125; else &#123;</div><div class="line">        throw new Exception(&quot;not select statement&quot;);</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/01/19/druid-sql-parse/" class="archive-article-date">
+  	<time datetime="2017-01-19T06:16:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-19</time>
+</a>
+      
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tree-database-design" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/17/tree-database-design/">数据库友好的树结构设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在最近的系统设计中，涉及到对组织对象或者目录对象组成的树进行重构。我们第一版本的设计参考了这篇文章的设计<a href="http://mikehillyer.com/articles/managing-hierarchical-data-in-mysql/" target="_blank" rel="external">Managing Hierarchical Data in MySQL</a>。</p>
+<p>最简单朴素的树结构设计是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE category(</div><div class="line">        category_id INT AUTO_INCREMENT PRIMARY KEY,</div><div class="line">        name VARCHAR(20) NOT NULL,</div><div class="line">        parent INT DEFAULT NULL</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>但是这种设计对于你想拿一个节点下的子树这种操作不太友好。虽然这种对子树操作比如移动，删除这种还是比较友好的。但是考虑到，组织树这种很少修改，而获取子树这种操作比较多。所以就采取了这篇文章推荐的方案。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE nested_category (</div><div class="line">        category_id INT AUTO_INCREMENT PRIMARY KEY,</div><div class="line">        name VARCHAR(20) NOT NULL,</div><div class="line">        lft INT NOT NULL,</div><div class="line">        rgt INT NOT NULL</div><div class="line">);</div><div class="line"></div><div class="line">INSERT INTO nested_category VALUES(1,&apos;ELECTRONICS&apos;,1,20),(2,&apos;TELEVISIONS&apos;,2,9),(3,&apos;TUBE&apos;,3,4),</div><div class="line"> (4,&apos;LCD&apos;,5,6),(5,&apos;PLASMA&apos;,7,8),(6,&apos;PORTABLE ELECTRONICS&apos;,10,19),(7,&apos;MP3 PLAYERS&apos;,11,14),(8,&apos;FLASH&apos;,12,13),</div><div class="line"> (9,&apos;CD PLAYERS&apos;,15,16),(10,&apos;2 WAY RADIOS&apos;,17,18);</div><div class="line"></div><div class="line">SELECT * FROM nested_category ORDER BY category_id;</div><div class="line"></div><div class="line">+-------------+----------------------+-----+-----+</div><div class="line">| category_id | name                 | lft | rgt |</div><div class="line">+-------------+----------------------+-----+-----+</div><div class="line">|           1 | ELECTRONICS          |   1 |  20 |</div><div class="line">|           2 | TELEVISIONS          |   2 |   9 |</div><div class="line">|           3 | TUBE                 |   3 |   4 |</div><div class="line">|           4 | LCD                  |   5 |   6 |</div><div class="line">|           5 | PLASMA               |   7 |   8 |</div><div class="line">|           6 | PORTABLE ELECTRONICS |  10 |  19 |</div><div class="line">|           7 | MP3 PLAYERS          |  11 |  14 |</div><div class="line">|           8 | FLASH                |  12 |  13 |</div><div class="line">|           9 | CD PLAYERS           |  15 |  16 |</div><div class="line">|          10 | 2 WAY RADIOS         |  17 |  18 |</div><div class="line">+-------------+----------------------+-----+-----+</div></pre></td></tr></table></figure>
+<p>具体模型如图所示</p>
+<p><img src="http://mikehillyer.com/media//nested_categories.png" alt="Nested Set Model" title="Nested Set Model"></p>
+<p>这种你要想获取一个子树，只要限定lft和rgt的范围就好<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SELECT node.name</div><div class="line">FROM nested_category AS node,</div><div class="line">        nested_category AS parent</div><div class="line">WHERE node.lft BETWEEN parent.lft AND parent.rgt</div><div class="line">        AND parent.name = &apos;ELECTRONICS&apos;</div><div class="line">ORDER BY node.lft;</div></pre></td></tr></table></figure></p>
+<p>从代码上，简练了很多。但是考虑数据库性能方面就有一个问题。比如，为了数据库加速，是不是要给lft和rgt做索引？虽然我们可以做索引，但是是非聚合索引，也就是说在磁盘上不是连续的。获取多行的时候，还是要涉及随机读写。</p>
+<p>为了加强连续读写的性能，我们利用前缀树这种方式建立了树<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE `pe_organ` (</div><div class="line">  `parent` varchar(255) NOT NULL,</div><div class="line">  `current` varchar(255) NOT NULL,</div><div class="line">  `level` int(11) DEFAULT NULL,</div><div class="line">  `name` varchar(255) DEFAULT NULL,</div><div class="line">  `site_id` varchar(10) NOT NULL,</div><div class="line">  PRIMARY KEY (`parent`,`current`)</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</div><div class="line"></div><div class="line">parent	current	level</div><div class="line">NULL	/1-1	1</div><div class="line">NULL	/1-2	1</div><div class="line">NULL	/1-3	1</div><div class="line">/1-1	/1-1/2-1	2</div><div class="line">/1-1	/1-1/2-2	2</div><div class="line">/1-1/2-1	/1-1/2-1/3-1	3</div></pre></td></tr></table></figure></p>
+<p>parent为父亲节点的路径，current表示当前节点的路径。如果我们想拿<code>/1-1</code>的所有子节点的话只要</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM pe_organ WHERE parent LIKE &apos;/1-1%&apos;</div></pre></td></tr></table></figure>
+<p>这个查询是走索引的。</p>
+<p>同时由于我们建立了联合主键，获取的子节点在硬盘的安排上是连续的</p>
+<p>至于每个级别子路径的设计 我们采取了 <code>level-number</code>的模式</p>
+<p>需要注意，这种树的设计在移动树的方面还是比较费劲的，这种设计的主要目的是加速子树查询。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/17/tree-database-design/" class="archive-article-date">
+  	<time datetime="2016-12-17T02:39:12.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-17</time>
+</a>
+      
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-token-spring-security" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/09/token-spring-security/">spirng-boot中，基于既有的token验证方式，利用spring-security实现权限系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用过spring-security的都应该能感觉到，spring-security把authentication和authorization封装的比较死。默认的authorization是基于session的。利用session验证过的信息，保存进SecurityContext，权限系统再根据SecurityContext保存的用户权限相关信息，来进行权限管理。</p>
+<p>但是在目前的场景中，服务器端往往要满足多端的验证方式，session的方式不容易和移动端配合的好。更多的是用一个token放在http header中进行验证。这种就需要绕开spring-security默认的authentication直接利用它的authorization。</p>
+<p>在这里我演示一个在spring-security做方法级别拦截的方案。</p>
+<p>这里就是基于token的spring-boot安全拦截配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">@Configuration</div><div class="line">@EnableWebSecurity</div><div class="line">@EnableGlobalMethodSecurity(prePostEnabled = true)</div><div class="line">@Order(1)</div><div class="line">public class TokenBasedSecurityConfig extends WebSecurityConfigurerAdapter &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void configure(HttpSecurity http) &#123;</div><div class="line">        try &#123;</div><div class="line">            http.addFilterBefore(... SecurityContextPersistenceFilter.class);</div><div class="line"></div><div class="line">            http.securityContext().securityContextRepository(new SecurityContextRepository() &#123;</div><div class="line">                @Override</div><div class="line">                public SecurityContext loadContext(HttpRequestResponseHolder requestResponseHolder) &#123;</div><div class="line">					...</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void saveContext(SecurityContext context, HttpServletRequest request, HttpServletResponse response) &#123;</div><div class="line">					...</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public boolean containsContext(HttpServletRequest request) &#123;</div><div class="line">					...</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这里，我们要做的其实就是设置重在<code>SecurityContextRepository</code>。这个实体在spring security启动中要传递给<code>SecurityContextPersistenceFilter</code>。这个filter根据request来加载<code>SecurityContext</code>。而<code>SecurityContextPersistenceFilter</code>就是从其内部的<code>SecurityContextRepository</code>来加载<code>SecurityContext</code>的。所以我们就需要重载上面代码中的三个方法，根据request来构造<code>SecurityContext</code>。</p>
+<p>我们再来看一下<code>SecurityContext</code>到底封装了什么。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public interface SecurityContext extends Serializable &#123;</div><div class="line"></div><div class="line">	Authentication getAuthentication();</div><div class="line"></div><div class="line">	void setAuthentication(Authentication authentication);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Authentication而已。</p>
+<p>public interface Authentication extends Principal, Serializable {</p>
+<pre><code>Collection&lt;? extends GrantedAuthority&gt; getAuthorities();
+
+Object getCredentials();
+
+Object getDetails();
+
+Object getPrincipal();
+
+boolean isAuthenticated();
+
+
+void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException;
+</code></pre><p>}</p>
+<p>在这里我们还要构造一个机遇token的Authentication接口的实现。在实现中对于权限来说很有用的就是<code>getAuthorities</code>方法。我们只要给其封装最简单的<code>SimpleGrantedAuthority</code>就好了。</p>
+<p>这样我们就可以给我们的Controller方法做拦截了~</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@RestController</div><div class="line">@RequestMapping(value = &quot;test&quot;)</div><div class="line">public class TestController &#123;</div><div class="line"></div><div class="line">    @PreAuthorize(&quot;hasAuthority(&apos;super_admin&apos;)&quot;)</div><div class="line">    @RequestMapping(value = &quot;hello&quot;, method = RequestMethod.GET)</div><div class="line">    public String superHello(@RequestParam String domain) &#123;</div><div class="line">        return new String(&quot;super hello&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/09/token-spring-security/" class="archive-article-date">
+  	<time datetime="2016-12-09T08:04:18.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-machine-learning-cert" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/29/machine-learning-cert/">终于拿到证书了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>经过两个月的小努力，终于拿到Cousera机器学习课的证书了。虽然以前也上过模式识别课，但是还是觉得这么课程学到了很多。一方面Andrew Ng教授能用浅显的语言讲出Insight，另一方面本课程的作业确实挺能巩固知识，同时给人成就感的。最后，秀一下证书</p>
+<p><img src="http://7xpw11.com1.z0.glb.clouddn.com/cert.png" alt="证书"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/29/machine-learning-cert/" class="archive-article-date">
+  	<time datetime="2016-11-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-29</time>
+</a>
+      
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/life/">life</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-grafana-predict" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/18/grafana-predict/">利用collectd, influxdb和grafana进行简单的负载预警</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文仅仅是对负载预警的简单尝试，能够预测的场景也比较有限，但是作为预测工作的开始已经比较能够说明问题了。</p>
+<p>利用collectd, influxdb和grafana进行监控系统搭建可以参考这篇文章<a href="http://jansipke.nl/monitoring-hosts-with-collectd-influxdb-and-grafana/" target="_blank" rel="external">Monitoring hosts with CollectD, InfluxDB and Grafana</a> grafana的操作比nagios和cacti真的友好很多，可定制的能力也强很多。</p>
+<p><img src="http://7xpw11.com1.z0.glb.clouddn.com/web57.jpg" alt="负载监控"></p>
+<p>虽然grafana有一定的报警能力（在grafana4.0版本之后,alert模块直接继承进来，所以推荐4.0的版本），但是能够提前十几分钟对于集群负载超标进行预警，一直是我们的一个小目标。所以在这里，我们就开始为这个小目标做了一点小努力。</p>
+<p>在实际运行中，我们安装了这个<a href="https://github.com/anryko/grafana-influx-dashboard" target="_blank" rel="external">小插件</a>。它能够对应用负载进行批量的显示，节约了好多体力活。</p>
+<p><img src="http://7xpw11.com1.z0.glb.clouddn.com/loads.jpg" alt="图片描述"></p>
+<p>通过分析，我们可以看到以下几种负载</p>
+<p>简单趋势型</p>
+<p><img src="http://7xpw11.com1.z0.glb.clouddn.com/linear.jpg" alt="图片描述"></p>
+<p>周期型</p>
+<p><img src="http://7xpw11.com1.z0.glb.clouddn.com/cycle.jpg" alt="图片描述"></p>
+<p>规律不明显型</p>
+<p>而对于周期型我们也可以看到在短期是可以看到一定趋势的。</p>
+<p>在这里我们仅采用线性回归对简单趋势进行预测。这点对于python很好实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">from datetime import datetime</div><div class="line">from influxdb import DataFrameClient</div><div class="line">import numpy as np</div><div class="line">from scipy import stats</div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    host = &apos;localhost&apos;</div><div class="line">    port = 8086</div><div class="line">    user = &apos;root&apos;</div><div class="line">    password = &apos;root&apos;</div><div class="line">    dbname = &apos;collectd&apos;</div><div class="line"></div><div class="line">    client = DataFrameClient(host, port, user, password, dbname)</div><div class="line"></div><div class="line">    print(&quot;Create pandas DataFrame&quot;)</div><div class="line">    start_time = datetime(2016, 11, 17, 3,10).timestamp()</div><div class="line">    end_time = datetime(2016, 11, 17, 8,50).timestamp()</div><div class="line">    query = &quot;select * from load_midterm where host=&apos;web153&apos; and time &gt; &quot; + str(int(start_time)) + &quot;s and time &lt; &quot; \</div><div class="line">            + str(int(end_time)) + &quot;s&quot;</div><div class="line">    df = client.query(query)</div><div class="line"></div><div class="line">    slope, intercept, r_value, p_value, std_err = stats.linregress(range(df[&apos;load_midterm&apos;].shape[0]), df[&apos;load_midterm&apos;][&apos;value&apos;].values)</div><div class="line">    print(slope)</div><div class="line">    print(intercept)</div><div class="line">    print(r_value)</div><div class="line">    print(p_value)</div></pre></td></tr></table></figure>
+<p>在这里我们用的是统计模块得到斜率和截距。需要注意的是，我们还要对R2，p值以及方差进行评价。一般来说r^2 &gt;0.7, p&lt;0.05, std_err&lt;0.1</p>
+<p>在这里，为什么没有采用一些更复杂的机器学习方法呢？</p>
+<p>无论采用什么模型，关键是要提取一些关键feature。我观察过简单的应用服务器的其他指标，包括tcp连接数，cpu，磁盘io等，与load的协同性比较高，很难成为15min后load的先导预测feature。如果从服务器集群的整体角度去找feature的话，也许是可以做的，未来会关注这块。</p>
+<p>在具体实现上，后端基于python flask编写一个预测服务器，而前端开发可以基于grafana的clock插件进行开发:<a href="https://github.com/grafana/clock-panel" target="_blank" rel="external">clock-panel</a></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/18/grafana-predict/" class="archive-article-date">
+  	<time datetime="2016-11-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-18</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运维/">运维</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-grafana-plugin" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/14/grafana-plugin/">安利一个运维监控平台grafana的插件grafana-influx-dashboard</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在这安利一个grafana的监控插件<a href="https://github.com/anryko/grafana-influx-dashboard" target="_blank" rel="external">grafana-influx-dashboard</a> 使用方法直接在github主页就能看到</p>
+<p>利用grafana+collectd+influxdb快速搭建监控系统是很多创业公司采用的一个方案，网上也有很多相关教程。但是对于管理几十台上百台机器的话，一台一台配置graph确实好麻烦。grafana提供了相应的scripted template编程方式。但是编写起来还是要花一些时间，尤其对于前端经验匮乏的运维来说还是有一定难度。这个grafana的插件利用js模板直接获得所有主机，通过输入不同的get参数能进行多样的监控选择，废话不说，直接上效果。</p>
+<p>主机列表<br><img src="http://7xpw11.com1.z0.glb.clouddn.com/getdash.jpg" alt="getdash.jpg"></p>
+<p>某台机器的所有指标</p>
+<p><img src="http://7xpw11.com1.z0.glb.clouddn.com/web062.jpg" alt="web062.jpg"></p>
+<p>所有主机的load<br><img src="http://7xpw11.com1.z0.glb.clouddn.com/load.jpg" alt="load.jpg"></p>
+<p>有时间了我也会对这个插件做二次开发</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/14/grafana-plugin/" class="archive-article-date">
+  	<time datetime="2016-11-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运维/">运维</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angularjs-async" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/06/angularjs-async/">angularjs利用ui-route异步加载组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ui-route相比于angularjs的原生视图路由更好地支持了路由嵌套，状态转移等等。随着视图不断增加，打包的js体积也会越来越大，比如我在应用里面用到了<a href="https://github.com/wangfupeng1988/wangEditor" target="_blank" rel="external">wangeditor</a>里面单独依赖的jquery就300多k。异步加载各个组件就很有必要。在这里我就以ui-route为框架来进行异步加载说明。</p>
+<p>首先看一下路由加载文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;webtrn-sns&apos;).config([&apos;$stateProvider&apos;, function ($stateProvider) &#123;</div><div class="line">    $stateProvider.state(&#123;</div><div class="line">            name: &apos;home.message&apos;,</div><div class="line">            url: &apos;/message&apos;,</div><div class="line">            abstract: true,</div><div class="line">            templateProvider: [&apos;resources&apos;, function (resources) &#123;</div><div class="line">                return resources.template</div><div class="line">            &#125;],</div><div class="line">            controllerProvider: [&apos;resources&apos;, (resources)=&gt; &#123;</div><div class="line">                return resources.controller</div><div class="line">            &#125;],</div><div class="line">            onEnter: [&apos;resources&apos;, (resources)=&gt;resources.css.use()],</div><div class="line">            onExit: [&apos;resources&apos;, (resources)=&gt;resources.css.unuse()],</div><div class="line">            resolve: &#123;</div><div class="line">                resources: ()=&gt; &#123;</div><div class="line">                    return new Promise(</div><div class="line">                        resolve =&gt; &#123;</div><div class="line">                            require([], () =&gt; &#123;</div><div class="line">                                resolve(&#123;</div><div class="line">                                    css: require(&apos;./css/message_box.css&apos;),</div><div class="line">                                    template: require(&apos;./html/message_box.html&apos;),</div><div class="line">                                    controller: require(&apos;./js/message_box.js&apos;)</div><div class="line">                                &#125;)</div><div class="line">                            &#125;)</div><div class="line">                        &#125;</div><div class="line">                    );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ).state(&#123;</div><div class="line">            name: &apos;home.message.add_message&apos;,</div><div class="line">            url: &apos;/add_message?isReply&amp;toUid&amp;title&apos;,</div><div class="line">            params: &#123;isReply: null, toUid: null, title: null&#125;,</div><div class="line">            templateProvider: [&apos;resources&apos;, function (resources) &#123;</div><div class="line">                return resources.template</div><div class="line">            &#125;],</div><div class="line">            controllerProvider: [&apos;resources&apos;, (resources)=&gt; &#123;</div><div class="line">                return resources.controller</div><div class="line">            &#125;],</div><div class="line">            onEnter: [&apos;resources&apos;, (resources)=&gt;resources.css.use()],</div><div class="line">            onExit: [&apos;resources&apos;, (resources)=&gt;resources.css.unuse()],</div><div class="line">            resolve: &#123;</div><div class="line">                resources: ()=&gt; &#123;</div><div class="line">                    return new Promise(</div><div class="line">                        resolve =&gt; &#123;</div><div class="line">                            require([&apos;./js/message.js&apos;], () =&gt; &#123;</div><div class="line">                                resolve(&#123;</div><div class="line">                                    css: require(&apos;./css/add_message.css&apos;),</div><div class="line">                                    template: require(&apos;./html/add_message.html&apos;),</div><div class="line">                                    controller: require(&apos;./js/add_message.js&apos;)</div><div class="line">                                &#125;)</div><div class="line">                            &#125;)</div><div class="line">                        &#125;</div><div class="line">                    );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    )</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+<p>这个是路由状态的一个声明文件，<code>name</code>,<code>url</code>,<code>param字段的</code>方式不变，关键是看resolve这个部分。根据ui-route的<a href="https://github.com/angular-ui/ui-router/wiki#resolve" target="_blank" rel="external">resolve</a>文档,resolve是为了给state或者controller进行自定义注入对象的。</p>
+<p>下面是举出文档中关于resolve的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">$stateProvider.state(&apos;myState&apos;, &#123;</div><div class="line">      resolve:&#123;</div><div class="line"></div><div class="line">         // Example using function with simple return value.</div><div class="line">         // Since it&apos;s not a promise, it resolves immediately.</div><div class="line">         simpleObj:  function()&#123;</div><div class="line">            return &#123;value: &apos;simple!&apos;&#125;;</div><div class="line">         &#125;,</div><div class="line"></div><div class="line">         // Example using function with returned promise.</div><div class="line">         // This is the typical use case of resolve.</div><div class="line">         // You need to inject any services that you are</div><div class="line">         // using, e.g. $http in this example</div><div class="line">         promiseObj:  function($http)&#123;</div><div class="line">            // $http returns a promise for the url data</div><div class="line">            return $http(&#123;method: &apos;GET&apos;, url: &apos;/someUrl&apos;&#125;);</div><div class="line">         &#125;,</div><div class="line"></div><div class="line">         // Another promise example. If you need to do some </div><div class="line">         // processing of the result, use .then, and your </div><div class="line">         // promise is chained in for free. This is another</div><div class="line">         // typical use case of resolve.</div><div class="line">         promiseObj2:  function($http)&#123;</div><div class="line">            return $http(&#123;method: &apos;GET&apos;, url: &apos;/someUrl&apos;&#125;)</div><div class="line">               .then (function (data) &#123;</div><div class="line">                   return doSomeStuffFirst(data);</div><div class="line">               &#125;);</div><div class="line">         &#125;,        </div><div class="line"></div><div class="line">         // Example using a service by name as string.</div><div class="line">         // This would look for a &apos;translations&apos; service</div><div class="line">         // within the module and return it.</div><div class="line">         // Note: The service could return a promise and</div><div class="line">         // it would work just like the example above</div><div class="line">         translations: &quot;translations&quot;,</div><div class="line"></div><div class="line">         // Example showing injection of service into</div><div class="line">         // resolve function. Service then returns a</div><div class="line">         // promise. Tip: Inject $stateParams to get</div><div class="line">         // access to url parameters.</div><div class="line">         translations2: function(translations, $stateParams)&#123;</div><div class="line">             // Assume that getLang is a service method</div><div class="line">             // that uses $http to fetch some translations.</div><div class="line">             // Also assume our url was &quot;/:lang/home&quot;.</div><div class="line">             return translations.getLang($stateParams.lang);</div><div class="line">         &#125;,</div><div class="line"></div><div class="line">         // Example showing returning of custom made promise</div><div class="line">         greeting: function($q, $timeout)&#123;</div><div class="line">             var deferred = $q.defer();</div><div class="line">             $timeout(function() &#123;</div><div class="line">                 deferred.resolve(&apos;Hello!&apos;);</div><div class="line">             &#125;, 1000);</div><div class="line">             return deferred.promise;</div><div class="line">         &#125;</div><div class="line">      &#125;,</div><div class="line"></div><div class="line">      // The controller waits for every one of the above items to be</div><div class="line">      // completely resolved before instantiation. For example, the</div><div class="line">      // controller will not instantiate until promiseObj&apos;s promise has </div><div class="line">      // been resolved. Then those objects are injected into the controller</div><div class="line">      // and available for use.  </div><div class="line">      controller: function($scope, simpleObj, promiseObj, promiseObj2, translations, translations2, greeting)&#123;</div><div class="line">          $scope.simple = simpleObj.value;</div><div class="line"></div><div class="line">          // You can be sure that promiseObj is ready to use!</div><div class="line">          $scope.items = promiseObj.data.items;</div><div class="line">          $scope.items = promiseObj2.items;</div><div class="line"></div><div class="line">          $scope.title = translations.getLang(&quot;english&quot;).title;</div><div class="line">          $scope.title = translations2.title;</div><div class="line"></div><div class="line">          $scope.greeting = greeting;</div><div class="line">      &#125;</div><div class="line">   &#125;)</div></pre></td></tr></table></figure></p>
+<p>我们可以看到resolve的对象是支持Promise的。</p>
+<p>再回到我们之前的代码<code>templateProvider</code>和<code>controllerProvider</code>我们注入了resources的模板对象和controller对象，<code>onEnter</code>和<code>onExit</code>注入了css模块。</p>
+<p>如果controller中依赖了服务怎么办的？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">    resources: ()=&gt; &#123;</div><div class="line">        return new Promise(</div><div class="line">            resolve =&gt; &#123;</div><div class="line">                require([&apos;./js/message.js&apos;], () =&gt; &#123;</div><div class="line">                    resolve(&#123;</div><div class="line">                        css: require(&apos;./css/add_message.css&apos;),</div><div class="line">                        template: require(&apos;./html/add_message.html&apos;),</div><div class="line">                        controller: require(&apos;./js/add_message.js&apos;)</div><div class="line">                    &#125;)</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以在require里面将服务注入，如代码中的<code>message.js</code>。而为了将服务进行异步加载我们不能用普通的<code>.factory</code>或者<code>.service</code>。而需要调用<code>$provide.factory</code>或者<code>$provide.service</code></p>
+<p>如果采用webpack进行编译打包的话就需要<code>webpack.optimize.CommonsChunkPlugin</code>的支持，这样可以对js进行拆分打包，达到异步加载js的目的。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/06/angularjs-async/" class="archive-article-date">
+  	<time datetime="2016-11-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularjs/">angularjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spring-boot-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/28/spring-boot-test/">spring-boot单元测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文仅适用spring-boot 1.4版本以后的写法，至于1.4以前的版本，还是建议升级到1.4:)</p>
+<p>如果仅仅是直接调用接口函数进行测试的话，非常简单增加。在测试类增加一些注解就好了。利用<code>@Autowired</code>也能将接口给注解进来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@RunWith(SpringRunner.class)</div><div class="line">@SpringBootTest</div><div class="line">public class ApiTest &#123;</div><div class="line">    @Autowired</div><div class="line">    MessageApi messageApi;</div><div class="line">    ...</div></pre></td></tr></table></figure>
+<p>同时spring-boot-test也直接支持mockmvc。如果测试controller的话会用得到，像下面这样就就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@RunWith(SpringRunner.class)</div><div class="line">@SpringBootTest</div><div class="line">@AutoConfigureMockMvc</div><div class="line">public class ControllerTest &#123;</div><div class="line">    @Autowired</div><div class="line">    private MockMvc mockMvc;</div><div class="line"></div><div class="line">    @Test</div><div class="line">    public void testControllerMethods() &#123;</div><div class="line">    	MvcResult result = mockMvc.perform(get(&quot;/get-receive-message-abstracts&quot;).param(&quot;siteId&quot;, &quot;webtrn&quot;).param(&quot;uid&quot;, &quot;lucy&quot;)</div><div class="line">                    .param(&quot;limit&quot;, &quot;100&quot;)).andExpect(status().isOk())</div><div class="line">                    .andExpect(jsonPath(&quot;$&quot;, hasSize(10))).andExpect(jsonPath(&quot;$[9].title&quot;, is(&quot;hello0&quot;))).andReturn();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>其中MockMvc可以模拟http对于controller的请求主要用到的函数在我的测试用例里面都列出来了。大家开发的时候直接看javadoc就好了。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/28/spring-boot-test/" class="archive-article-date">
+  	<time datetime="2016-10-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/coding/">coding</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+  
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 chenatu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/cassandra/" style="font-size: 13.33px;">cassandra</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/方法论/" style="font-size: 10px;">方法论</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/美团/" style="font-size: 10px;">美团</a> <a href="/tags/运维/" style="font-size: 13.33px;">运维</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个java web程序员，希望自己两年之内能成为data scientist，正在找工作</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
