@@ -5,6 +5,7 @@ lastmod: 2025-07-30T10:53:37+08:00
 tags: []
 series: []
 description: ""
+comments: true
 cover:
   image: ""
   alt: ""
