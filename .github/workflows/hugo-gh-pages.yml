@@ -1,0 +1,41 @@
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]     # 触发条件
+  workflow_dispatch:         # 允许手动按钮
+
+concurrency:
+  group: "deploy"            # 防止并发跑多次
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read         # checkout 代码
+      pages: write           # 部署 Pages
+      id-token: write        # OIDC 身份验证（取代 PAT）
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v4
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.148.2'
+        extended: true        # 必开，支持 SCSS
+        enableCache: true     # Hug﻿o Modules 缓存
+
+    - name: Build with Hugo
+      run: hugo --gc --minify
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./public
+
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
