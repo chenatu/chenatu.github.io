@@ -11,17 +11,17 @@ languageCode = "en-us"
   defaultTheme = "auto"        # 跟随系统深浅色
   showCodeCopyButtons = true   # 代码块一键复制
   comments = true
-  [params.giscus]
-    repo = "chenatu/chenatu.github.io"
-    repo_id = "R_kgDOPVGbaQ"        # 4 个 *ID* 源自 giscus.app
-    category = "Comments"
-    category_id = "DIC_kwDOPVGbac4CtkYf"
-    mapping = "pathname"
-    reactions_enabled = "1"          # 显示 👍😂🎉 …
-    emit_metadata   = "0"
-    input_position  = "bottom"
-    theme           = "preferred_color_scheme"
-    lang            = "zh-CN"
+[params.giscus]
+  repo = "chenatu/chenatu.github.io"
+  repo_id = "R_kgDOPVGbaQ"        # 4 个 *ID* 源自 giscus.app
+  category = "Comments"
+  category_id = "DIC_kwDOPVGbac4CtkYf"
+  mapping = "pathname"
+  reactions_enabled = "1"          # 显示 👍😂🎉 …
+  emit_metadata   = "0"
+  input_position  = "bottom"
+  theme           = "preferred_color_scheme"
+  lang            = "zh-CN"
 
 
 [markup]
