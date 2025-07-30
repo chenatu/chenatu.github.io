@@ -2,7 +2,6 @@
 title: "Hello World"
 date: 2025-07-30T10:53:37+08:00
 lastmod: 2025-07-30T10:53:37+08:00
-draft: true
 tags: []
 series: []
 description: ""
