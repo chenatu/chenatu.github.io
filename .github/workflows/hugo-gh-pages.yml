@@ -1,41 +1,49 @@
-name: Deploy Hugo site to GitHub Pages
+name: Deploy Hugo site
 
 on:
   push:
-    branches: [ "main" ]     # 触发条件
-  workflow_dispatch:         # 允许手动按钮
-
-concurrency:
-  group: "deploy"            # 防止并发跑多次
-  cancel-in-progress: true
+    branches: [ "main" ]      # 仅当 main 更新时部署
+  workflow_dispatch:          # 手动触发按钮
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HUGO_CACHEDIR: /tmp/hugo_cache   # 固定缓存目录
 
     permissions:
-      contents: read         # checkout 代码
-      pages: write           # 部署 Pages
-      id-token: write        # OIDC 身份验证（取代 PAT）
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
-    - name: Checkout source
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: '0.148.2'
-        extended: true        # 必开，支持 SCSS
-        enableCache: true     # Hug﻿o Modules 缓存
+      # ① 缓存 Hugo Modules（速度可快 20‑30 s）
+      - name: Cache Hugo modules
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HUGO_CACHEDIR }}
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
 
-    - name: Build with Hugo
-      run: hugo --gc --minify
+      # ② 安装 Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.148.2'   # 或 'latest'
+          extended: true
 
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./public
+      # ③ 构建
+      - name: Build
+        run: hugo --gc --minify
 
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
+      # ④ 上传并发布 Pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
