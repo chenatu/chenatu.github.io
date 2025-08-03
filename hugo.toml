@@ -1,6 +1,6 @@
 baseURL = "https://chenatu.github.io/"
-title   = "Tech Notes"
-languageCode = "en-us"
+title   = "Chenatu's blog"
+languageCode = "zh-CN"
 
 
 [module]

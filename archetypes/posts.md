@@ -4,7 +4,7 @@ date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
 tags: []
-series: []
+categories: []
 description: ""
 cover:
   image: ""

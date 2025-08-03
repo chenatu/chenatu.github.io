@@ -2,3 +2,7 @@ public/
 .hugo_build.lock
 .hugo_cache/
 resources/_gen/
+.vscode/
+.frontmatter/
+.DS_Store
+frontmatter.json
