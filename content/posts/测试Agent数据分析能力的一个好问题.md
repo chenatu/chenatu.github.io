@@ -2,7 +2,7 @@
 title: 测试Agent数据分析能力的一个好问题
 date: 2025-07-30T21:28:13+08:00
 lastmod: 2025-07-30T21:28:13+08:00
-draft: true
+draft: false
 tags: []
 categories:
   - Agent
