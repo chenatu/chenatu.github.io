@@ -30,4 +30,8 @@ languageCode = "zh-CN"
   [markup.highlight]
     style = "dracula"          # 程序员友好的高对比配色
 
+[services]
+  [services.googleAnalytics]
+    id = "G-QFNXJZSSKG"  # 你的 Measurement ID
+
 
