@@ -37,7 +37,7 @@ jobs:
 
       # ③ 构建
       - name: Build
-        run: hugo --gc --minify
+        run: hugo --gc --minify --baseURL "https://blog.chenatu.cc/"
 
       # ④ 上传并发布 Pages
       - name: Upload artifact
