@@ -2,7 +2,6 @@ baseURL = "https://blog.chenatu.cc/"
 title   = "Chenatu's blog"
 languageCode = "zh-CN"
 
-
 [module]
   [[module.imports]]
     path = "github.com/adityatelange/hugo-PaperMod"
@@ -10,10 +9,21 @@ languageCode = "zh-CN"
     path = "github.com/hugomods/giscus"
 
 [params]
+  # SEO优化配置
+  description = "专注于后端开发、LLM Agent开发、量化交易和个人学习的技术博客。分享最新的技术实践、开发经验和学习心得。"
+  keywords = ["后端开发", "LLM Agent", "量化交易", "Python", "Go", "算法", "技术博客", "个人学习"]
+
+  # 主题配置
   defaultTheme = "auto"
   showCodeCopyButtons = true
   comments = true
 
+  # 作者信息
+  [params.author]
+  name = "Chenatu"
+  bio = "后端开发工程师，专注于LLM Agent开发和量化交易"
+
+  # Favicon配置
   [params.assets]
     favicon = "/favicon.svg"
     favicon16x16 = "/favicon.svg"
