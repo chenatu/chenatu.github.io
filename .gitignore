@@ -6,3 +6,4 @@ resources/_gen/
 .frontmatter/
 .DS_Store
 frontmatter.json
+.claude/

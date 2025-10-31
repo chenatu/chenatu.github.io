@@ -13,6 +13,13 @@ languageCode = "zh-CN"
   defaultTheme = "auto"
   showCodeCopyButtons = true
   comments = true
+
+  [params.assets]
+    favicon = "/favicon.svg"
+    favicon16x16 = "/favicon.svg"
+    favicon32x32 = "/favicon.svg"
+    apple_touch_icon = "/favicon.svg"
+    safari_pinned_tab = "/favicon.svg"
 [params.giscus]
   repo = "chenatu/chenatu.github.io"
   repo_id = "R_kgDOPVGbaQ"
