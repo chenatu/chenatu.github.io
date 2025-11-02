@@ -18,6 +18,11 @@ languageCode = "zh-CN"
   showCodeCopyButtons = true
   comments = true
 
+  # 目录配置
+  ShowToc = true
+  TocOpen = true
+  UseHugoToc = false
+
   # 作者信息
   [params.author]
   name = "Chenatu"
