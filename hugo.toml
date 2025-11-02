@@ -23,11 +23,6 @@ languageCode = "zh-CN"
   TocOpen = true
   UseHugoToc = false
 
-  # 作者信息
-  [params.author]
-  name = "Chenatu"
-  bio = "后端开发工程师，专注于LLM Agent开发和量化交易"
-
   # Favicon配置
   [params.assets]
     favicon = "/favicon.svg"
