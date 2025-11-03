@@ -4,7 +4,7 @@
   "outputDirectory": "public",
   "framework": null,
   "env": {
-    "HUGO_VERSION": "0.124.1",
+    "HUGO_VERSION": "0.146.0",
     "GO_VERSION": "1.21.5"
   }
 }
