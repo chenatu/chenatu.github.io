@@ -1,0 +1,10 @@
+{
+  "buildCommand": "hugo --gc --minify --baseURL $VERCEL_URL",
+  "outputDirectory": "public",
+  "framework": null,
+  "installCommand": "curl -L https://github.com/gohugoio/hugo/releases/download/v0.124.1/hugo_extended_0.124.1_Linux-64bit.tar.gz | tar -xz -C /tmp && mv /tmp/hugo /usr/local/bin/hugo",
+  "devCommand": "hugo server -D -F --port $PORT --bind 0.0.0.0",
+  "env": {
+    "HUGO_VERSION": "0.124.1"
+  }
+}
