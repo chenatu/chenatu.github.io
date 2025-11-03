@@ -42,4 +42,4 @@ EOF
 
 # 构建网站
 echo "Building Hugo site..."
-hugo --gc --minify --baseURL "https://${VERCEL_URL}"
+hugo --gc --minify --baseURL "https://blog.chenatu.cc/"
