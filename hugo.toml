@@ -47,6 +47,9 @@ languageCode = "zh-CN"
 [markup]
   [markup.highlight]
     style = "dracula"          # 程序员友好的高对比配色
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [services]
   [services.googleAnalytics]
