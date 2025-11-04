@@ -17,6 +17,7 @@ languageCode = "zh-CN"
   defaultTheme = "auto"
   showCodeCopyButtons = true
   comments = true
+  disableSpecial1stPost = true
 
   # 目录配置
   ShowToc = true
