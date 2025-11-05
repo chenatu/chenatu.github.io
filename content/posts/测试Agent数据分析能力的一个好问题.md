@@ -3,10 +3,9 @@ title: 测试Agent数据分析能力的一个好问题
 date: 2025-07-30T21:28:13+08:00
 lastmod: 2025-07-30T21:28:13+08:00
 draft: false
-tags: []
+tags: ["Agent", "数据分析"]
 categories:
-  - Agent
-  - 数据分析
+  - 文章
 description: ""
 cover:
   image: ""

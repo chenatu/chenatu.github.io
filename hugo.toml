@@ -19,6 +19,20 @@ languageCode = "zh-CN"
   comments = true
   disableSpecial1stPost = true
 
+
+  # 社交图标配置
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/chenatu"
+
+  # 如果你有其他社交账号，可以取消注释并填入你的链接
+  # [[params.socialIcons]]
+  #   name = "email"
+  #   url = "mailto:your.email@example.com"
+  # [[params.socialIcons]]
+  #   name = "linkedin"
+  #   url = "https://linkedin.com/in/yourprofile"
+
   # 目录配置
   ShowToc = true
   TocOpen = true
@@ -54,5 +68,31 @@ languageCode = "zh-CN"
 [services]
   [services.googleAnalytics]
     id = "G-QFNXJZSSKG"  # 你的 Measurement ID
+
+# 菜单配置
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "关于我"
+    url = "/about/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 40
 
 
