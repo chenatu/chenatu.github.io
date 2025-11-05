@@ -19,8 +19,17 @@ languageCode = "zh-CN"
   comments = true
   disableSpecial1stPost = true
 
+  # RSS 配置
+  ShowFullTextinRSS = true
+  ShowRssButtonInSectionTermList = true
 
-  # 社交图标配置
+
+
+  # 社交图标配置 - RSS 图标会在导航栏显示
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
   [[params.socialIcons]]
     name = "github"
     url = "https://github.com/chenatu"

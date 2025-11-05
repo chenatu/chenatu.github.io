@@ -1,4 +1,4 @@
-{{ if .Store.Get "hasMermaid" }}
+{{- if .Store.Get "hasMermaid" }}
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>
   mermaid.initialize({
@@ -7,3 +7,64 @@
   });
 </script>
 {{ end }}
+
+<!-- 在导航栏添加 RSS 订阅图标 -->
+<style>
+.rss-nav-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: 1rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.rss-nav-icon:hover {
+  color: var(--secondary);
+  transform: translateY(-1px);
+}
+
+.rss-nav-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.rss-nav-icon-text {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .rss-nav-icon {
+    margin-left: 0.5rem;
+  }
+
+  .rss-nav-icon-text {
+    display: none;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menu = document.getElementById('menu');
+  if (menu) {
+    // 在菜单末尾添加 RSS 图标
+    const rssIcon = document.createElement('li');
+    rssIcon.innerHTML = `
+      <a href="/index.xml" title="RSS 订阅" class="rss-nav-icon" aria-label="RSS">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+          <path d="M4 11a9 9 0 0 1 9 9" />
+          <path d="M4 4a16 16 0 0 1 16 16" />
+          <circle cx="5" cy="19" r="1" />
+        </svg>
+        <span class="rss-nav-icon-text">RSS</span>
+      </a>
+    `;
+
+    menu.appendChild(rssIcon);
+  }
+});
+</script>
