@@ -1,5 +1,6 @@
 ---
 title: 测试Agent数据分析能力的一个好问题
+slug: testing-agent-data-analysis-capabilities
 date: 2025-07-30T21:28:13+08:00
 lastmod: 2025-07-30T21:28:13+08:00
 draft: false

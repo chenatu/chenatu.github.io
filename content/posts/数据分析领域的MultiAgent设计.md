@@ -1,5 +1,6 @@
 ---
 title: 数据分析领域的MultiAgent设计
+slug: multiagent-design-for-data-analysis
 date: 2025-10-30T21:28:13+08:00
 lastmod: 2025-10-30T21:28:13+08:00
 draft: false
