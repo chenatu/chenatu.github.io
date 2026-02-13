@@ -1,0 +1,63 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 查找所有引用块中的第一个 p 标签
+  var alerts = document.querySelectorAll('blockquote > p:first-child');
+  
+  alerts.forEach(function(p) {
+    // 匹配 [!NOTE], [!TIP], [!WARNING] 等，不区分大小写
+    var match = p.textContent.match(/^\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*/i);
+    if (match) {
+      var alertType = match[1].toLowerCase();
+      var blockquote = p.parentElement;
+      
+      // 添加对应的 class
+      blockquote.classList.add('markdown-alert', 'markdown-alert-' + alertType);
+      
+      // 移除 [!NOTE] 标记
+      // 注意：这里需要小心保留 p 标签内的其他 HTML（如链接、加粗等）
+      // 使用 node 操作更安全
+      var textNode = p.firstChild;
+      if (textNode && textNode.nodeType === 3) { // 文本节点
+        textNode.textContent = textNode.textContent.replace(/^\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*/i, '');
+      }
+      
+      // 创建标题元素 (可选，为了更好看，也可以不加，但加上更符合 GitHub 风格)
+      var titleDiv = document.createElement('div');
+      titleDiv.className = 'markdown-alert-title';
+      titleDiv.innerText = alertType.charAt(0).toUpperCase() + alertType.slice(1);
+      
+      // 插入标题到 blockquote 最前面
+      blockquote.insertBefore(titleDiv, p);
+    }
+  });
+});
+</script>
+
+<style>
+/* 基础 Alert 样式，确保即使没有外部 CSS 也能有基本区分 */
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-left: .25em solid #dfe2e5;
+}
+
+.markdown-alert-title {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.markdown-alert-note { border-left-color: #0969da; }
+.markdown-alert-note .markdown-alert-title { color: #0969da; }
+
+.markdown-alert-tip { border-left-color: #1a7f37; }
+.markdown-alert-tip .markdown-alert-title { color: #1a7f37; }
+
+.markdown-alert-important { border-left-color: #8250df; }
+.markdown-alert-important .markdown-alert-title { color: #8250df; }
+
+.markdown-alert-warning { border-left-color: #9a6700; }
+.markdown-alert-warning .markdown-alert-title { color: #9a6700; }
+
+.markdown-alert-caution { border-left-color: #cf222e; }
+.markdown-alert-caution .markdown-alert-title { color: #cf222e; }
+</style>

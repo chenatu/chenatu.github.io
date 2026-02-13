@@ -73,6 +73,12 @@ languageCode = "zh-CN"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.extensions]
+      footnote = true
+      table = true
+      linkify = true
+      strikethrough = true
+      taskList = true
 
 [services]
   [services.googleAnalytics]
@@ -103,5 +109,3 @@ languageCode = "zh-CN"
     name = "标签"
     url = "/tags/"
     weight = 40
-
-
